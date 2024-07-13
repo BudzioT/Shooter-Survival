@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cdas2umbrvee1"]
+[gd_scene load_steps=31 format=3 uid="uid://cdas2umbrvee1"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/Map.gd" id="1_gpayx"]
 [ext_resource type="Texture2D" uid="uid://cjkck1qapw5m2" path="res://Graphics/ground/stones.png" id="2_ku2id"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bhcv5p0bb26hw" path="res://Graphics/tilesets/soil.png" id="11_2m4dp"]
 [ext_resource type="PackedScene" uid="uid://dh62lyxuhe3qv" path="res://Scenes/Buildings/SmallBuilding.tscn" id="13_thdr6"]
 [ext_resource type="PackedScene" uid="uid://olj5t6lja21f" path="res://Scenes/Objects/SteamVent.tscn" id="14_53n1l"]
+[ext_resource type="PackedScene" uid="uid://d1aruant2mpd1" path="res://Scenes/Objects/FanAnimation.tscn" id="15_18f6i"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bqrjl"]
 polygon = PackedVector2Array(195, -58.9994, 195, 58.8331, 54.1221, 58.9663, 53.6766, 61.7504, 51.1937, 63.3968, -61.3134, 62.2063, -67.0677, 56.452, -66.9685, -62.0575, -65.5795, -63.5457, -62.4047, -65.0338, 55.1622, -64.8354, 55.141, -59.1397)
@@ -427,6 +428,17 @@ position = Vector2(-6121, -511)
 
 [node name="SteamVent" parent="Ground" instance=ExtResource("14_53n1l")]
 position = Vector2(-279, 647)
+
+[node name="Fans" type="Node2D" parent="Ground"]
+
+[node name="FanAnimation" parent="Ground/Fans" instance=ExtResource("15_18f6i")]
+position = Vector2(8587, 1862)
+
+[node name="FanAnimation2" parent="Ground/Fans" instance=ExtResource("15_18f6i")]
+position = Vector2(8632, -237)
+
+[node name="FanAnimation3" parent="Ground/Fans" instance=ExtResource("15_18f6i")]
+position = Vector2(-5672, -932)
 
 [node name="Gate" parent="." instance=ExtResource("4_wvby7")]
 position = Vector2(459, -476)
