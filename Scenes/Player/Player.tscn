@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhla60233jwmr"]
+[gd_scene load_steps=4 format=3 uid="uid://dhla60233jwmr"]
 
 [ext_resource type="Texture2D" uid="uid://cu70nljp6vb5x" path="res://Graphics/player/player.png" id="1_hagwf"]
+[ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_yhqy1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u73n4"]
 radius = 65.0308
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_yhqy1")
 
 [node name="PlayerImage" type="Sprite2D" parent="."]
 texture = ExtResource("1_hagwf")
@@ -13,3 +15,23 @@ texture = ExtResource("1_hagwf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 34)
 shape = SubResource("CircleShape2D_u73n4")
+
+[node name="MainTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SecondaryTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Weapon" type="Node2D" parent="."]
+
+[node name="LaserMarker" type="Marker2D" parent="Weapon"]
+position = Vector2(8, -94)
+
+[node name="LaserMarker2" type="Marker2D" parent="Weapon"]
+position = Vector2(19, -97)
+
+[node name="LaserMarker3" type="Marker2D" parent="Weapon"]
+position = Vector2(30, -94)
+
+[connection signal="timeout" from="MainTimer" to="." method="_on_main_timer_timeout"]
+[connection signal="timeout" from="SecondaryTimer" to="." method="_on_secondary_timer_timeout"]
