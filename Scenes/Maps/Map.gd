@@ -22,8 +22,10 @@ func _used_main_action(pos, direction):
 	
 	# Set its position
 	laser.position = pos
-	# Set the velocity
-	laser.linear_velocity = direction * laser.speed
+	# Set the correct laser's rotation
+	laser.rotation = direction.angle()
+	# Update the direction
+	laser.direction = direction
 	
 	# Add it to the current map's laser projectiles
 	$Projectiles/Lasers.add_child(laser)
