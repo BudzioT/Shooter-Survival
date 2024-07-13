@@ -43,6 +43,9 @@ func _handle_input():
 func _main_action(player_direction):
 	# If player presses shoot action and is allowed to do it
 	if Input.is_action_pressed("MainAction") and main_action:
+		# Create some shooting particles
+		$ShootParticle.emitting = true;
+		
 		# Get position markers of the laser
 		var positions = $Weapon.get_children()
 		
