@@ -10,10 +10,12 @@ radius = 65.0308
 script = ExtResource("1_yhqy1")
 
 [node name="PlayerImage" type="Sprite2D" parent="."]
+rotation = 1.5708
 texture = ExtResource("1_hagwf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 34)
+position = Vector2(-38, -1)
+rotation = 1.5708
 shape = SubResource("CircleShape2D_u73n4")
 
 [node name="MainTimer" type="Timer" parent="."]
@@ -23,6 +25,7 @@ one_shot = true
 wait_time = 2.0
 
 [node name="Weapon" type="Node2D" parent="."]
+rotation = 1.5708
 
 [node name="LaserMarker" type="Marker2D" parent="Weapon"]
 position = Vector2(8, -94)

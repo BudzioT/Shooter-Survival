@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://w743vsdf1s0q"]
+[gd_scene load_steps=3 format=3 uid="uid://w743vsdf1s0q"]
 
 [ext_resource type="Texture2D" uid="uid://dgbxhy8duybse" path="res://Graphics/projectiles/blue.png" id="1_adgju"]
+[ext_resource type="Script" path="res://Scenes/Projectiles/Laser.gd" id="1_koc0x"]
 
 [node name="Laser" type="StaticBody2D"]
+script = ExtResource("1_koc0x")
 
 [node name="Image" type="Sprite2D" parent="."]
 texture = ExtResource("1_adgju")

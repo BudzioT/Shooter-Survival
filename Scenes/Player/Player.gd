@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 
 # Signals for player's actions
-signal used_main_action(pos)
-signal used_secondary_action
+signal used_main_action(pos, direction)
+signal used_secondary_action(pos, direction)
 
 # Main and secondary allow action flags
 var main_action: bool = true
@@ -21,12 +21,14 @@ func _process(delta):
 func _update(_delta):
 	# Get the player's direction vector
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
-	
 	# Update his velocity
 	velocity = direction * 400
 	
 	# Move the player, delta is applied automatically
 	move_and_slide()
+	
+	# Rotate him based off the mouse position
+	look_at(get_global_mouse_position())
 	
 # Check for input and handle it
 func _handle_input():
@@ -40,8 +42,11 @@ func _main_action():
 	if Input.is_action_pressed("MainAction") and main_action:
 		# Get position markers of the laser
 		var positions = $Weapon.get_children()
-		# Choose a random one
-		var laser_marker = positions[randi() % positions.size()]
+		
+		# Choose a random one and store its position
+		var pos = positions[randi() % positions.size()].global_position
+		# Get its direction and normalize it
+		var laser_direction = (get_global_mouse_position() - pos).normalized()
 		
 		# Don't allow player to use main action anymore
 		main_action = false
@@ -49,7 +54,7 @@ func _main_action():
 		$MainTimer.start()
 		
 		# Emite the main action signal
-		used_main_action.emit(laser_marker.position)
+		used_main_action.emit(pos, laser_direction)
 
 # Throw a grenade
 func _secondary_action():
@@ -57,12 +62,19 @@ func _secondary_action():
 	if Input.is_action_pressed("SecondaryAction") and secondary_action:
 		# Turn off the flag
 		secondary_action = false
-		
 		# Start the cooldown
 		$SecondaryTimer.start()
 		
+		# Get its marker position (choose a center one)
+		var grenade_marker = $Weapon/LaserMarker2
+		
+		# Its position
+		var pos = grenade_marker.global_position
+		# Get the direction, normalize it for proper speed managment
+		var grenade_direction = (get_global_mouse_position() - pos).normalized()
+		
 		# Emit secondary action signal
-		used_secondary_action.emit()
+		used_secondary_action.emit(pos, grenade_direction)
 
 # When main action cooldown ends, allow the player to use it again
 func _on_main_timer_timeout():
