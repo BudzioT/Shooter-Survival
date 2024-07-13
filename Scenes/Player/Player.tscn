@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhla60233jwmr"]
+
+[ext_resource type="Texture2D" uid="uid://cu70nljp6vb5x" path="res://Graphics/player/player.png" id="1_hagwf"]
+[ext_resource type="Texture2D" uid="uid://dgbxhy8duybse" path="res://Graphics/projectiles/blue.png" id="2_jfoju"]
+[ext_resource type="Texture2D" uid="uid://c56muoh8r8lox" path="res://Graphics/projectiles/grenade.png" id="3_ef5u1"]
+
+[node name="Player" type="Node2D"]
+
+[node name="PlayerImage" type="Sprite2D" parent="."]
+texture = ExtResource("1_hagwf")
+
+[node name="ProjectileImage" type="Sprite2D" parent="PlayerImage"]
+position = Vector2(-1, -182)
+texture = ExtResource("2_jfoju")
+
+[node name="Grenade" type="Sprite2D" parent="."]
+position = Vector2(-64, -89)
+scale = Vector2(0.286184, 0.286184)
+texture = ExtResource("3_ef5u1")

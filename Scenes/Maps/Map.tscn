@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdas2umbrvee1"]
+
+[ext_resource type="Script" path="res://Scenes/Maps/Map.gd" id="1_gpayx"]
+[ext_resource type="Texture2D" uid="uid://cshnrndqtxs7i" path="res://icon.svg" id="1_w60be"]
+[ext_resource type="Script" path="res://Scenes/Logo.gd" id="2_5074a"]
+[ext_resource type="PackedScene" uid="uid://dhla60233jwmr" path="res://Scenes/Player/Player.tscn" id="3_unffv"]
+[ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="5_a81ox"]
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_gpayx")
+
+[node name="Logo" type="Sprite2D" parent="."]
+texture = ExtResource("1_w60be")
+script = ExtResource("2_5074a")
+
+[node name="Player" parent="." instance=ExtResource("3_unffv")]
+position = Vector2(355, 151)
+script = ExtResource("5_a81ox")
