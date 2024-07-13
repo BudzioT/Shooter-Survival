@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsnum8t8l86d5"]
+[gd_scene load_steps=6 format=3 uid="uid://dsnum8t8l86d5"]
 
 [ext_resource type="Script" path="res://Scenes/Projectiles/Grenade.gd" id="1_78xd8"]
 [ext_resource type="Texture2D" uid="uid://c56muoh8r8lox" path="res://Graphics/projectiles/grenade.png" id="1_mla6p"]
@@ -9,6 +9,9 @@ bounce = 0.3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1pvfn"]
 radius = 76.0263
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4nc7r"]
+polygon = PackedVector2Array(-26, 7, -27, 8, -26, 9, -26, 10, -25, 12, -23, 15, -22, 15, -20, 17, -18, 19, -16, 21, -13, 23, -8, 25, -4, 26, 0, 26, 4, 26, 8, 25, 8, 26, 11, 25, 14, 24, 15, 23, 15, 22, 18, 20, 21, 17, 23, 14, 24, 12, 25, 10, 26, 8, 26, 5, 27, 3, 27, 0, 27, -3, 26, -5, 26, -6, 27, -7, 27, -9, 26, -11, 25, -12, 24, -12, 23, -13, 20, -17, 17, -20, 14, -22, 10, -24, 5, -26, 2, -26, -5, -26, -6, -26, -9, -25, -11, -24, -12, -25, -13, -25, -14, -25, -16, -24, -17, -23, -17, -22, -17, -21, -20, -18, -22, -16, -24, -13, -25, -11, -26, -9, -27, -5, -27, -2, -27, 2, -26, 4)
 
 [node name="Grenade" type="RigidBody2D"]
 collision_layer = 8
@@ -26,3 +29,6 @@ texture = ExtResource("1_mla6p")
 position = Vector2(-1, 1)
 scale = Vector2(0.35, 0.35)
 shape = SubResource("CircleShape2D_1pvfn")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_4nc7r")
