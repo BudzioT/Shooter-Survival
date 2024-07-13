@@ -4,6 +4,8 @@
 [ext_resource type="Script" path="res://Scenes/Projectiles/Laser.gd" id="1_koc0x"]
 
 [node name="Laser" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 7
 script = ExtResource("1_koc0x")
 
 [node name="Image" type="Sprite2D" parent="."]
