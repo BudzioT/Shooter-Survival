@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://olj5t6lja21f"]
+
+[node name="SteamVent" type="StaticBody2D"]
