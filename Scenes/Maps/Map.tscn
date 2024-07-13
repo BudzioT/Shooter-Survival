@@ -1,18 +1,27 @@
 [gd_scene load_steps=6 format=3 uid="uid://cdas2umbrvee1"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/Map.gd" id="1_gpayx"]
-[ext_resource type="Texture2D" uid="uid://cshnrndqtxs7i" path="res://icon.svg" id="1_w60be"]
-[ext_resource type="Script" path="res://Scenes/Logo.gd" id="2_5074a"]
 [ext_resource type="PackedScene" uid="uid://dhla60233jwmr" path="res://Scenes/Player/Player.tscn" id="3_unffv"]
+[ext_resource type="PackedScene" uid="uid://ckekpy6pmlg6k" path="res://Scenes/Objects/Gate.tscn" id="4_wvby7"]
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="5_a81ox"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsvjd"]
+size = Vector2(859, 184)
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_gpayx")
 
-[node name="Logo" type="Sprite2D" parent="."]
-texture = ExtResource("1_w60be")
-script = ExtResource("2_5074a")
+[node name="Gate" parent="." instance=ExtResource("4_wvby7")]
+position = Vector2(459, -476)
+
+[node name="GateArea" type="Area2D" parent="Gate"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/GateArea"]
+position = Vector2(62.5, 687)
+shape = SubResource("RectangleShape2D_vsvjd")
 
 [node name="Player" parent="." instance=ExtResource("3_unffv")]
-position = Vector2(355, 151)
+position = Vector2(366, 391)
 script = ExtResource("5_a81ox")
+
+[connection signal="body_entered" from="Gate/GateArea" to="." method="_on_gate_area_body_entered"]
