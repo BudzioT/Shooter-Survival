@@ -152,7 +152,7 @@ physics_material_override = SubResource("PhysicsMaterial_qq7sb")
 gravity_scale = 0.0
 linear_damp = 1.6
 script = ExtResource("1_78xd8")
-speed = 800
+speed = 1200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 1)

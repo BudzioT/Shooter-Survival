@@ -10,10 +10,6 @@ var laser_scene : PackedScene = preload("res://Scenes/Projectiles/Laser.tscn")
 var grenade_scene : PackedScene = preload("res://Scenes/Projectiles/Grenade.tscn")
 
 
-# Handle exiting the gate
-func _gate_exited(_body):
-	pass
-
 # Make the player shoot a laser
 func _used_main_action(pos, direction):
 	# Create a laser instance
@@ -28,6 +24,9 @@ func _used_main_action(pos, direction):
 	
 	# Add it to the current map's laser projectiles
 	$Projectiles/Lasers.add_child(laser)
+	
+	# Update projectile count in the user's interface
+	$UI.update_projectile_label()
 
 # Make the player throw a grenade
 func _used_secondary_action(pos, direction):
@@ -42,6 +41,9 @@ func _used_secondary_action(pos, direction):
 	
 	# Add it to the map's grenades
 	$Projectiles/Grenades.add_child(grenade)
+	
+	# Update player's grenade count
+	$UI.update_grenade_label()
 
 
 # Handle player entering a building

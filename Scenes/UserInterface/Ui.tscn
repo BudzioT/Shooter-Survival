@@ -1,38 +1,85 @@
-[gd_scene format=3 uid="uid://djlq57jqhgl5l"]
+[gd_scene load_steps=8 format=3 uid="uid://djlq57jqhgl5l"]
+
+[ext_resource type="Texture2D" uid="uid://d0yyfbm6g0aui" path="res://Graphics/ui/bullet.png" id="1_1rf0c"]
+[ext_resource type="Script" path="res://Scenes/UserInterface/Ui.gd" id="1_iuk4h"]
+[ext_resource type="Theme" uid="uid://mkdsbyif22mi" path="res://Scenes/UserInterface/FontTheme.tres" id="1_slf3a"]
+[ext_resource type="Texture2D" uid="uid://crdm83826cuju" path="res://Graphics/ui/grenade.png" id="2_biuca"]
+[ext_resource type="Texture2D" uid="uid://dnx5pcuu34o5h" path="res://Graphics/ui/progress_bar/bg.png" id="4_ise4t"]
+[ext_resource type="Texture2D" uid="uid://cqfjd2rdvuqqs" path="res://Graphics/ui/progress_bar/over.png" id="5_afrho"]
+[ext_resource type="Texture2D" uid="uid://de1eiqb84bo5l" path="res://Graphics/ui/progress_bar/progress.png" id="6_vymqu"]
 
 [node name="UI" type="CanvasLayer"]
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 157.0
-offset_top = 117.0
-offset_right = 197.0
-offset_bottom = 157.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="HBoxContainer"]
-layout_mode = 2
-text = "Lorem Ipsum..."
-
-[node name="Label2" type="Label" parent="HBoxContainer"]
-layout_mode = 2
-text = "Lorem Ipsum..."
+script = ExtResource("1_iuk4h")
 
 [node name="Projectiles" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
+anchor_left = 0.02
+anchor_top = 0.93
+anchor_right = 0.02
 anchor_bottom = 1.0
 offset_top = -40.0
 offset_right = 40.0
 grow_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Projectiles"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="Projectiles/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("1_slf3a")
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Projectiles/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_1rf0c")
+expand_mode = 4
+
+[node name="Grenades" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.065
+anchor_top = 0.93
+anchor_right = 0.075
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Grenades"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Grenades/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_slf3a")
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Grenades/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_biuca")
+expand_mode = 4
+
+[node name="HealthBar" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 30
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthBar"]
+layout_mode = 2
+value = 50.0
+texture_under = ExtResource("4_ise4t")
+texture_over = ExtResource("5_afrho")
+texture_progress = ExtResource("6_vymqu")

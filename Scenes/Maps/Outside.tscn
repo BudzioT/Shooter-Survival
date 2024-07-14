@@ -441,6 +441,9 @@ position = Vector2(-5672, -932)
 [node name="Gate" parent="." index="1" instance=ExtResource("2_jy0w5")]
 position = Vector2(459, -476)
 
+[node name="Player" parent="." index="3"]
+position = Vector2(370, 451)
+
 [node name="Moon" type="DirectionalLight2D" parent="." index="5"]
 color = Color(0.28485, 0.28485, 0.28485, 1)
 blend_mode = 1
