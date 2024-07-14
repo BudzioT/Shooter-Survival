@@ -9,4 +9,4 @@ func _exit_body_entered(_body) -> void:
 	tween.tween_property($Player, "speed", 0, 1)
 	
 	# Move the player outside
-	Transition.change_map("res://Scenes/Maps/Outside.tscn")
+	$Transition.change_map("res://Scenes/Maps/Outside.tscn")

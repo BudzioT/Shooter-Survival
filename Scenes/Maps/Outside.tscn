@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cojolu4o5toc5"]
+[gd_scene load_steps=44 format=3 uid="uid://cojolu4o5toc5"]
 
 [ext_resource type="PackedScene" uid="uid://cdas2umbrvee1" path="res://Scenes/Maps/Map.tscn" id="1_38wlu"]
 [ext_resource type="Texture2D" uid="uid://cjkck1qapw5m2" path="res://Graphics/ground/stones.png" id="2_73trm"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://y0hqiqmqiwh3" path="res://Scenes/Objects/Infestations/LargeInfestation.tscn" id="11_3wthm"]
 [ext_resource type="Texture2D" uid="uid://b2fb4tg6uo1wl" path="res://Graphics/decals/moss/moss_4.png" id="11_ekry7"]
 [ext_resource type="Texture2D" uid="uid://bpp6dhnqtg44q" path="res://Graphics/decals/moss/moss_5.png" id="12_qo6la"]
+[ext_resource type="PackedScene" uid="uid://c7w0yimwadgh4" path="res://Global/Transition.tscn" id="12_tna3t"]
 [ext_resource type="PackedScene" uid="uid://dh62lyxuhe3qv" path="res://Scenes/Buildings/SmallBuilding.tscn" id="13_410p0"]
 [ext_resource type="PackedScene" uid="uid://b4gw7ek2qd5jm" path="res://Scenes/Objects/Infestations/MediumInfestation.tscn" id="13_qud7f"]
 [ext_resource type="PackedScene" uid="uid://olj5t6lja21f" path="res://Scenes/Objects/Plain/SteamVent.tscn" id="14_034e8"]
@@ -688,6 +689,8 @@ blend_mode = 1
 
 [node name="Player" parent="." index="6"]
 position = Vector2(370, 451)
+
+[node name="Transition" parent="." index="9" instance=ExtResource("12_tna3t")]
 
 [connection signal="player_entered" from="Ground/Buildings/Building" to="." method="_building_player_entered"]
 [connection signal="player_left" from="Ground/Buildings/Building" to="." method="_building_player_left"]
