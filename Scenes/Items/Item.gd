@@ -14,6 +14,11 @@ const ammo_color : Color = Color("2DB5C4")
 const grenade_color : Color = Color("2E362C")
 const health_color : Color = Color("E02B1B")
 
+# Direction of the item
+var direction: Vector2
+# Its distance from the origin (randomly chosen)
+var distance: int = randi_range(150, 250)
+
 
 # Prepare the item
 func _ready():
@@ -24,6 +29,14 @@ func _ready():
 		$Sprite2D.modulate = grenade_color
 	elif type == "health":
 		$Sprite2D.modulate = health_color
+		
+	# Calculate final position
+	var final_position = position + direction * distance
+	
+	# Create a tween
+	var tween = create_tween()
+	# Move the item with the created twin
+	tween.tween_property(self, "position", final_position, 0.5)
 		
 # Process the item's changes
 func _process(delta):
