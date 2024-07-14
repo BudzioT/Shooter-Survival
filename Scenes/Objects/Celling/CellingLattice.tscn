@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1wlnbxhvv8ef"]
 
-[ext_resource type="PackedScene" uid="uid://dknkdyiqad6ha" path="res://Scenes/Objects/LightObject.tscn" id="1_jbe4p"]
+[ext_resource type="PackedScene" uid="uid://dknkdyiqad6ha" path="res://Scenes/Objects/Lights/LightObject.tscn" id="1_jbe4p"]
 [ext_resource type="Texture2D" uid="uid://bd5vrfj53eim0" path="res://Graphics/lights/overlays/lattice.png" id="2_qdfbb"]
 
 [node name="CellingLattice" instance=ExtResource("1_jbe4p")]

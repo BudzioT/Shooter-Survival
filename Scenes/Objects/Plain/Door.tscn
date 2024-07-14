@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj0miu31c74sy"]
+
+[ext_resource type="PackedScene" uid="uid://bnkqnpryiug3f" path="res://Scenes/Objects/CollisionObject.tscn" id="1_vutpc"]
+[ext_resource type="Texture2D" uid="uid://b2slgitoskw81" path="res://Graphics/objects/door.png" id="2_im4i8"]
+
+[node name="Door" instance=ExtResource("1_vutpc")]
+
+[node name="Image" parent="." index="0"]
+texture = ExtResource("2_im4i8")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-195, 10, -195, -10, 189, -10, 191, -9, 193, -6, 193, 6, 191, 10, 188, 10)

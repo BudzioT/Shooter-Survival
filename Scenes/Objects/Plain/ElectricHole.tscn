@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc6eytgfa44sk"]
+
+[ext_resource type="PackedScene" uid="uid://bnkqnpryiug3f" path="res://Scenes/Objects/CollisionObject.tscn" id="1_lsb0i"]
+[ext_resource type="Texture2D" uid="uid://dtp7tmy3l0cet" path="res://Graphics/objects/electric_hole.png" id="2_t4g3p"]
+
+[node name="ElectricHole" instance=ExtResource("1_lsb0i")]
+
+[node name="Image" parent="." index="0"]
+texture = ExtResource("2_t4g3p")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-95, 79, -94, 82, -92, 86, -90, 89, -86, 92, -80, 94, 81, 94, 88, 91, 93, 83, 95, 79, 95, -80, 93, -85, 91, -89, 86, -92, 81, -95, -79, -95, -83, -94, -86, -92, -90, -89, -94, -83, -95, -79)

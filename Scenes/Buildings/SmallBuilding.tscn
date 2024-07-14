@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scenes/Buildings/SmallBuilding.gd" id="1_7gnmc"]
 [ext_resource type="Texture2D" uid="uid://cafk0sq32w63j" path="res://Graphics/tilesets/interior.png" id="1_pck82"]
-[ext_resource type="PackedScene" uid="uid://mlp3i71v6xmj" path="res://Scenes/Objects/Light.tscn" id="2_5r6xq"]
-[ext_resource type="PackedScene" uid="uid://gtke2h554o5n" path="res://Scenes/Objects/LightLamp.tscn" id="3_56gtc"]
+[ext_resource type="PackedScene" uid="uid://mlp3i71v6xmj" path="res://Scenes/Objects/Lights/Light.tscn" id="2_5r6xq"]
+[ext_resource type="PackedScene" uid="uid://gtke2h554o5n" path="res://Scenes/Objects/Lights/LightLamp.tscn" id="3_56gtc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j7w0e"]
 size = Vector2(3156, 1899)

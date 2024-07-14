@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cafk0sq32w63j" path="res://Graphics/tilesets/interior.png" id="1_3woa0"]
 [ext_resource type="Script" path="res://Scenes/Buildings/Building.gd" id="1_qrxwr"]
-[ext_resource type="PackedScene" uid="uid://mlp3i71v6xmj" path="res://Scenes/Objects/Light.tscn" id="2_3ulv7"]
-[ext_resource type="PackedScene" uid="uid://gtke2h554o5n" path="res://Scenes/Objects/LightLamp.tscn" id="3_e8m3i"]
+[ext_resource type="PackedScene" uid="uid://mlp3i71v6xmj" path="res://Scenes/Objects/Lights/Light.tscn" id="2_3ulv7"]
+[ext_resource type="PackedScene" uid="uid://gtke2h554o5n" path="res://Scenes/Objects/Lights/LightLamp.tscn" id="3_e8m3i"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dpfuw"]
 polygon = PackedVector2Array(-195, -20.9339, 195, -20.6252, 195, 20.9058, -195, 21.2315)

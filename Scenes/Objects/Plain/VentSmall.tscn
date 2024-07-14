@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwjsldd4ehe7s"]
+
+[ext_resource type="PackedScene" uid="uid://bnkqnpryiug3f" path="res://Scenes/Objects/CollisionObject.tscn" id="1_aadp8"]
+[ext_resource type="Texture2D" uid="uid://dliyx7tf3apxw" path="res://Graphics/objects/ventilation_surface_small.png" id="2_yw52e"]
+
+[node name="VentSmall" instance=ExtResource("1_aadp8")]
+
+[node name="Image" parent="." index="0"]
+texture = ExtResource("2_yw52e")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-235, 59, -239, 57, -243, 55, -246, 50, -249, 46, -250, 44, -250, -44, -248, -49, -244, -53, -239, -57, -235, -58, -230, -59, 233, -59, 236, -58, 241, -56, 244, -54, 247, -49, 249, -45, 249, 45, 247, 48, 244, 53, 237, 57, 230, 59, -234, 58)

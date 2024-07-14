@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4gw7ek2qd5jm"]
+
+[ext_resource type="PackedScene" uid="uid://bnkqnpryiug3f" path="res://Scenes/Objects/CollisionObject.tscn" id="1_bsy4t"]
+[ext_resource type="Texture2D" uid="uid://m3qtb8ffxllg" path="res://Graphics/objects/infestation/medium.png" id="2_s2lj5"]
+
+[node name="MediumInfestation" instance=ExtResource("1_bsy4t")]
+
+[node name="Image" parent="." index="0"]
+texture = ExtResource("2_s2lj5")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-36, 18, -35, 21, -32, 24, -28, 28, -21, 31, -15, 34, -9, 35, -2, 35, 3, 34, 8, 33, 15, 30, 21, 27, 27, 22, 30, 18, 33, 13, 34, 9, 35, 5, 37, 2, 39, -5, 39, -11, 37, -17, 33, -23, 31, -25, 30, -27, 21, -32, 17, -34, 11, -36, 2, -36, -5, -34, -11, -31, -15, -30, -17, -30, -19, -29, -21, -27, -24, -24, -27, -23, -27, -20, -30, -18, -35, -10, -37, -4, -38, 3, -38, 10, -36, 19)

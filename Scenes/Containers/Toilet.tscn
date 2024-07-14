@@ -17,3 +17,5 @@ texture = ExtResource("2_o4fxp")
 [node name="LidImage" parent="." index="2"]
 position = Vector2(0, 32)
 texture = ExtResource("4_6hu2a")
+
+[node name="Marker2D" type="Marker2D" parent="ItemSpawner" index="0"]

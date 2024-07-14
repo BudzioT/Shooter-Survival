@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dao6hkggn4u4"]
 
-[ext_resource type="PackedScene" uid="uid://dknkdyiqad6ha" path="res://Scenes/Objects/LightObject.tscn" id="1_e7ywn"]
+[ext_resource type="PackedScene" uid="uid://dknkdyiqad6ha" path="res://Scenes/Objects/Lights/LightObject.tscn" id="1_e7ywn"]
 [ext_resource type="Texture2D" uid="uid://dsi5r5jbkrwjc" path="res://Graphics/lights/overlays/infrastructure.png" id="2_3svtc"]
 
 [node name="CellingInfrastructure" instance=ExtResource("1_e7ywn")]

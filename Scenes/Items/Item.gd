@@ -35,8 +35,13 @@ func _ready():
 	
 	# Create a tween
 	var tween = create_tween()
+	# Make it parallel
+	tween.set_parallel(true)
+	
 	# Move the item with the created twin
 	tween.tween_property(self, "position", final_position, 0.5)
+	# Add appearing effect on the item
+	tween.tween_property(self, "scale", Vector2(1, 1), 0.35).from(Vector2(0, 0))
 		
 # Process the item's changes
 func _process(delta):

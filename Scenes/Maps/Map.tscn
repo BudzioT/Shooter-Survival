@@ -9,6 +9,16 @@ script = ExtResource("1_gpayx")
 
 [node name="Ground" type="Node2D" parent="."]
 
+[node name="Buildings" type="Node2D" parent="Ground"]
+
+[node name="Celling" type="Node2D" parent="Ground"]
+
+[node name="Patch" type="Node2D" parent="Ground"]
+
+[node name="Moss" type="Node2D" parent="Ground"]
+
+[node name="Decors" type="Node2D" parent="Ground"]
+
 [node name="Crates" type="Node2D" parent="."]
 
 [node name="Items" type="Node2D" parent="."]
