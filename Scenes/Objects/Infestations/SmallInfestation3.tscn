@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkoke1xsyfjbt"]
+
+[ext_resource type="PackedScene" uid="uid://bnkqnpryiug3f" path="res://Scenes/Objects/CollisionObject.tscn" id="1_lwn6g"]
+[ext_resource type="Texture2D" uid="uid://pd6m0a7slmr4" path="res://Graphics/objects/infestation/small_3.png" id="2_vxxlv"]
+
+[node name="SmallInfestation3" instance=ExtResource("1_lwn6g")]
+
+[node name="Image" parent="." index="0"]
+texture = ExtResource("2_vxxlv")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-17, 9, -17, 13, -17, 19, -14, 25, -8, 30, -5, 31, -1, 31, 3, 29, 7, 28, 13, 26, 17, 22, 18, 18, 19, 13, 18, 5, 17, -3, 15, -11, 12, -19, 6, -27, 2, -31, -2, -31, -5, -31, -10, -28, -15, -24, -19, -18, -19, -13, -19, -8, -19, -2, -18, 4)

@@ -330,12 +330,10 @@ position = Vector2(427, -1273)
 [node name="Lamps" type="Node2D" parent="."]
 
 [node name="LightLamp" parent="Lamps" instance=ExtResource("3_56gtc")]
-position = Vector2(-293, 712)
-rotation = 3.14159
+position = Vector2(-293, 730)
 
 [node name="LightLamp2" parent="Lamps" instance=ExtResource("3_56gtc")]
-position = Vector2(1526, 709)
-rotation = 3.14159
+position = Vector2(1539, 740)
 
 [connection signal="body_entered" from="." to="." method="_body_entered"]
 [connection signal="body_exited" from="." to="." method="_body_exited"]

@@ -13,6 +13,7 @@ func _gate_entered(_body) -> void:
 	
 # Handle player entering a building
 func _building_player_entered() -> void:
+	print("ENETERED NORMAL")
 	# Create a tween in the map's nodes tree and store it
 	var tween = get_tree().create_tween()
 	# Set parallel on tween to true
@@ -25,6 +26,7 @@ func _building_player_entered() -> void:
 
 # Handle player exiting the building
 func _building_player_left() -> void:
+	print("LEFT NORMAL")
 	# Get the tween
 	var tween = get_tree().create_tween()
 	# Set tween to make changes in parallel
@@ -36,6 +38,7 @@ func _building_player_left() -> void:
 
 # Handle player entering small building
 func _small_building_player_entered() -> void:
+	print("ENETERED SMALL")
 	# Set the player's camera zoom property to a closer one and alpha to smaller one in parallel
 	var tween = get_tree().create_tween()
 	tween.set_parallel(true)
@@ -45,6 +48,7 @@ func _small_building_player_entered() -> void:
 
 # Handle player leaving a small building
 func _small_building_player_left() -> void:
+	print("LEFT SMALL")
 	# Revert player's zoom and alpha back to normal, doing it at the same time
 	var tween = get_tree().create_tween()
 	tween.set_parallel(true)

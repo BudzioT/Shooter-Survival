@@ -333,22 +333,23 @@ rotation = 4.71239
 [node name="Lamps" type="Node2D" parent="."]
 
 [node name="LightLamp" parent="Lamps" instance=ExtResource("3_e8m3i")]
-position = Vector2(-792, 1492)
-rotation = -3.14159
+position = Vector2(-780, 1519)
 
 [node name="LightLamp3" parent="Lamps" instance=ExtResource("3_e8m3i")]
-position = Vector2(2651, 99)
-rotation = -4.71239
-
-[node name="LightLamp4" parent="Lamps" instance=ExtResource("3_e8m3i")]
-position = Vector2(-2269, 155)
+position = Vector2(2669, 99)
 rotation = -1.5708
 
+[node name="LightLamp4" parent="Lamps" instance=ExtResource("3_e8m3i")]
+position = Vector2(-2299, 155)
+rotation = 1.5708
+
 [node name="LightLamp5" parent="Lamps" instance=ExtResource("3_e8m3i")]
-position = Vector2(-831, -1078)
+position = Vector2(-817, -1099)
+rotation = 3.14159
 
 [node name="LightLamp6" parent="Lamps" instance=ExtResource("3_e8m3i")]
-position = Vector2(1343, -1085)
+position = Vector2(1352, -1103)
+rotation = 3.14159
 
 [node name="LightLamp2" parent="Lamps" instance=ExtResource("3_e8m3i")]
 position = Vector2(1901, 1492)

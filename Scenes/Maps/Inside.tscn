@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b642ewwvdwnup"]
+[gd_scene load_steps=16 format=3 uid="uid://b642ewwvdwnup"]
 
 [ext_resource type="PackedScene" uid="uid://cdas2umbrvee1" path="res://Scenes/Maps/Map.tscn" id="1_tffej"]
 [ext_resource type="Texture2D" uid="uid://c8nlo1ehnwdq0" path="res://Graphics/ground/dirt.png" id="2_4xihd"]
@@ -10,7 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://vdi3l1udcyul" path="res://Scenes/Objects/Celling/CellingHole.tscn" id="6_gciyc"]
 [ext_resource type="PackedScene" uid="uid://dao6hkggn4u4" path="res://Scenes/Objects/Celling/CellingInfrastructure.tscn" id="7_tbdss"]
 [ext_resource type="PackedScene" uid="uid://b1wlnbxhvv8ef" path="res://Scenes/Objects/Celling/CellingLattice.tscn" id="8_6vika"]
+[ext_resource type="PackedScene" uid="uid://ice0tbg838cc" path="res://Scenes/Containers/Crate.tscn" id="10_pc8kk"]
 [ext_resource type="PackedScene" uid="uid://dvtopn8a6ysy1" path="res://Scenes/Items/Item.tscn" id="10_rvdon"]
+[ext_resource type="PackedScene" uid="uid://b4xe2fp5q41tn" path="res://Scenes/Containers/ElectricBox.tscn" id="11_0gw1c"]
+[ext_resource type="PackedScene" uid="uid://cdi4g5yxluo06" path="res://Scenes/Containers/Toilet.tscn" id="12_a0s7o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_isk6i"]
 size = Vector2(1164, 412)
@@ -211,6 +214,12 @@ scale = Vector2(-2.24169, -3.13895)
 [node name="CellingLattice4" parent="Ground/Celling" index="11" instance=ExtResource("8_6vika")]
 position = Vector2(5574, -4915)
 scale = Vector2(-3.6325, -6.37707)
+
+[node name="Crate" parent="Crates" index="0" instance=ExtResource("10_pc8kk")]
+
+[node name="ItemContainer" parent="Crates" index="1" instance=ExtResource("11_0gw1c")]
+
+[node name="Toilet" parent="Crates" index="2" instance=ExtResource("12_a0s7o")]
 
 [node name="Item" parent="Items" index="0" instance=ExtResource("10_rvdon")]
 position = Vector2(271, 4263)

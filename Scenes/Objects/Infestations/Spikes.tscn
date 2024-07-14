@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbpxk07g0qr1w"]
+
+[ext_resource type="PackedScene" uid="uid://bnkqnpryiug3f" path="res://Scenes/Objects/CollisionObject.tscn" id="1_j5urf"]
+[ext_resource type="Texture2D" uid="uid://dfkmixywmn046" path="res://Graphics/objects/infestation/spikes.png" id="2_8mni8"]
+
+[node name="Spikes" instance=ExtResource("1_j5urf")]
+
+[node name="Image" parent="." index="0"]
+texture = ExtResource("2_8mni8")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-51, -2, -48, 0, -41, 2, -39, 2, -37, 8, -34, 16, -32, 22, -29, 24, -29, 26, -32, 44, -32, 46, -28, 43, -20, 40, -13, 36, -12, 34, -7, 36, -3, 37, 1, 37, 5, 37, 11, 37, 19, 34, 25, 31, 29, 33, 30, 34, 32, 30, 31, 25, 36, 21, 40, 14, 42, 8, 43, -1, 42, -3, 47, -5, 51, -9, 46, -11, 39, -13, 38, -19, 33, -26, 35, -29, 34, -32, 34, -40, 32, -45, 28, -44, 24, -42, 20, -39, 16, -39, 6, -43, 0, -42, -10, -39, -13, -37, -16, -42, -18, -42, -19, -39, -19, -35, -27, -31, -33, -27, -38, -19, -39, -13, -40, -11, -46, -8, -51, -4)

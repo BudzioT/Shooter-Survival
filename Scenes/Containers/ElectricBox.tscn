@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4xe2fp5q41tn"]
+[gd_scene load_steps=5 format=3 uid="uid://b4xe2fp5q41tn"]
 
 [ext_resource type="PackedScene" uid="uid://djbcx0xtckblb" path="res://Scenes/Containers/ItemContainer.tscn" id="1_nseoy"]
+[ext_resource type="Script" path="res://Scenes/Containers/ElectricBox.gd" id="2_5x4fc"]
 [ext_resource type="Texture2D" uid="uid://d0wi12m3os3dh" path="res://Graphics/objects/electric_box.png" id="2_7n0eh"]
+[ext_resource type="Texture2D" uid="uid://cyqsnss3xb6qe" path="res://Graphics/objects/Box.png" id="3_01p8j"]
 
 [node name="ItemContainer" instance=ExtResource("1_nseoy")]
+script = ExtResource("2_5x4fc")
 
-[node name="Image" parent="." index="0"]
+[node name="CollisionPolygon2D" parent="." index="0"]
+polygon = PackedVector2Array(-177, -110, -177, -109, -178, 110, -176, 116, -173, 121, -166, 125, -157, 129, -146, 129, 147, 129, 157, 128, 169, 124, 175, 117, 178, 110, 178, -110, 175, -116, 169, -123, 165, -126, 159, -127, 144, -127, 126, -127, 123, -131, 105, -131, 99, -127, -161, -127, -167, -124, -172, -120, -176, -114)
+
+[node name="Image" parent="." index="1"]
 texture = ExtResource("2_7n0eh")
 
-[node name="CollisionPolygon2D" parent="." index="1"]
-polygon = PackedVector2Array(-177, -110, -177, -109, -178, 110, -176, 116, -173, 121, -166, 125, -157, 129, -146, 129, 147, 129, 157, 128, 169, 124, 175, 117, 178, 110, 178, -110, 175, -116, 169, -123, 165, -126, 159, -127, 144, -127, 126, -127, 123, -131, 105, -131, 99, -127, -161, -127, -167, -124, -172, -120, -176, -114)
+[node name="LidImage" parent="." index="2"]
+texture = ExtResource("3_01p8j")
