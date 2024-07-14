@@ -25,9 +25,13 @@ func _ready():
 	# Connect health change signal to the update function, so the bar always updates
 	Global.connect("health_changed", update_health_bar)
 	
-	# Set the projectile and grenade count labels
+	# Set the projectile label and connect proper function to the signal
 	update_projectile_label()
+	Global.connect("projectile_changed", update_projectile_label)
+	
+	# Set the grenade label and connect function to signal
 	update_grenade_label()
+	Global.connect("grenade_changed", update_grenade_label)
 
 # Update the projectile's count
 func update_projectile_label() -> void:

@@ -9,15 +9,15 @@ script = ExtResource("1_gpayx")
 
 [node name="Ground" type="Node2D" parent="."]
 
+[node name="Crates" type="Node2D" parent="."]
+
+[node name="Items" type="Node2D" parent="."]
+
 [node name="Projectiles" type="Node2D" parent="."]
 
 [node name="Lasers" type="Node2D" parent="Projectiles"]
 
 [node name="Grenades" type="Node2D" parent="Projectiles"]
-
-[node name="Crates" type="Node2D" parent="."]
-
-[node name="Items" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("3_unffv")]
 position = Vector2(366, 391)
@@ -31,6 +31,5 @@ position_smoothing_enabled = true
 
 [node name="UI" parent="." instance=ExtResource("3_31610")]
 
-[connection signal="stats_changed" from="Player" to="." method="_player_stats_changed"]
 [connection signal="used_main_action" from="Player" to="." method="_used_main_action"]
 [connection signal="used_secondary_action" from="Player" to="." method="_used_secondary_action"]

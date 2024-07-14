@@ -31,8 +31,17 @@ func _process(delta):
 	rotation += rotation_speed * delta
 
 # Handle player going into an item
-func _body_entered(body):
+func _body_entered(_body):
 	# Add item's powerup to the player
-	body.powerup(type)
+	# If it's an ammo type, add ammunitions
+	if type == "ammo":
+		Global.projectile_count += 5
+	# Otherwise if type is grenade, add 3 grenades
+	elif type == "grenade":
+		Global.grenade_count += 3
+	# If it's a health type, increase player's health by 10, if it isn't max already
+	elif type == "health":
+		Global.health += 10
+		
 	# Destroy the item
 	queue_free()

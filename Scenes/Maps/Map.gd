@@ -8,7 +8,15 @@ class_name Level
 var laser_scene : PackedScene = preload("res://Scenes/Projectiles/Laser.tscn")
 # Scene with grenade projectile
 var grenade_scene : PackedScene = preload("res://Scenes/Projectiles/Grenade.tscn")
+# Scene with item
+var item_scene : PackedScene = preload("res://Scenes/Items/Item.tscn")
 
+
+# Prepare the map
+func _ready():
+	# Go through each container and connect it's open signal to proper action
+	for container in get_tree().get_nodes_in_group("Container"):
+		container.connect("lid_opened", _container_opened)
 
 # Make the player shoot a laser
 func _used_main_action(pos, direction) -> void:
@@ -86,13 +94,16 @@ func _small_building_player_left() -> void:
 	
 	tween.tween_property($Player/Camera2D, "zoom", Vector2(0.5, 0.5), 3)
 	tween.tween_property($Player, "modulate:a", 1, 3)
-
-# Handle player's stats changing
-func _player_stats_changed(type):
-	# Change user interface's data depending on the type of statistic changed
-	# Update projectiles count
-	if type == "ammo":
-		$UI.update_projectile_label()
-	# Update grenade
-	elif type == "grenade":
-		$UI.update_grenade_label()
+	
+# Handle player opening a container
+func _container_opened(pos, direction):
+	# Create an item
+	var item = item_scene.instantiate()
+	
+	# Set it at the correct position
+	item.position = pos
+	# Set its direction too
+	item.direction = direction
+	
+	# Add it to one node for a clean look (deferred, so it doesn't mess with physics)
+	$Items.call_deferred("add_child", item)
