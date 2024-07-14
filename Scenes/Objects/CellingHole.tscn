@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://vdi3l1udcyul"]
+
+[ext_resource type="PackedScene" uid="uid://dknkdyiqad6ha" path="res://Scenes/Objects/LightObject.tscn" id="1_wnstc"]
+[ext_resource type="Texture2D" uid="uid://df68on654h3fa" path="res://Graphics/lights/overlays/hole.png" id="2_t5ad0"]
+
+[node name="CellingHole" instance=ExtResource("1_wnstc")]
+
+[node name="Image" parent="." index="0"]
+modulate = Color(1, 1, 1, 0.121569)
+scale = Vector2(2, 1.858)
+texture = ExtResource("2_t5ad0")
+
+[node name="PointLight2D" parent="." index="1"]
+position = Vector2(-8.99999, -11)
+scale = Vector2(2, 1.858)
+color = Color(0.775063, 0.775063, 0.775063, 1)
+energy = 0.8

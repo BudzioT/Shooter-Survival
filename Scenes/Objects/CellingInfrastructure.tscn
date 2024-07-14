@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dao6hkggn4u4"]
+
+[ext_resource type="PackedScene" uid="uid://dknkdyiqad6ha" path="res://Scenes/Objects/LightObject.tscn" id="1_e7ywn"]
+[ext_resource type="Texture2D" uid="uid://dsi5r5jbkrwjc" path="res://Graphics/lights/overlays/infrastructure.png" id="2_3svtc"]
+
+[node name="CellingInfrastructure" instance=ExtResource("1_e7ywn")]
+
+[node name="Image" parent="." index="0"]
+modulate = Color(1, 1, 1, 0.0784314)
+scale = Vector2(2, 3.696)
+texture = ExtResource("2_3svtc")
+
+[node name="PointLight2D" parent="." index="1"]
+modulate = Color(1, 1, 1, 0.0784314)
+position = Vector2(-5.50001, -11.5)
+scale = Vector2(2, 3.696)
+energy = 0.5

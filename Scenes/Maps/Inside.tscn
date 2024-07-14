@@ -1,13 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://b642ewwvdwnup"]
+[gd_scene load_steps=12 format=3 uid="uid://b642ewwvdwnup"]
 
 [ext_resource type="PackedScene" uid="uid://cdas2umbrvee1" path="res://Scenes/Maps/Map.tscn" id="1_tffej"]
 [ext_resource type="Texture2D" uid="uid://c8nlo1ehnwdq0" path="res://Graphics/ground/dirt.png" id="2_4xihd"]
+[ext_resource type="Script" path="res://Scenes/Maps/Inside.gd" id="2_22vm4"]
 [ext_resource type="TileSet" uid="uid://bpjs4die0t7uc" path="res://Scenes/TileSets/Interior.tres" id="2_76o7f"]
 [ext_resource type="PackedScene" uid="uid://mlp3i71v6xmj" path="res://Scenes/Objects/Light.tscn" id="3_kuwb8"]
 [ext_resource type="PackedScene" uid="uid://gtke2h554o5n" path="res://Scenes/Objects/LightLamp.tscn" id="4_e6yty"]
 [ext_resource type="Texture2D" uid="uid://bue1hdmuchdix" path="res://Graphics/lights/textures/circle.png" id="5_hmux6"]
+[ext_resource type="PackedScene" uid="uid://vdi3l1udcyul" path="res://Scenes/Objects/CellingHole.tscn" id="6_gciyc"]
+[ext_resource type="PackedScene" uid="uid://dao6hkggn4u4" path="res://Scenes/Objects/CellingInfrastructure.tscn" id="7_tbdss"]
+[ext_resource type="PackedScene" uid="uid://b1wlnbxhvv8ef" path="res://Scenes/Objects/CellingLattice.tscn" id="8_6vika"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_isk6i"]
+size = Vector2(1164, 412)
 
 [node name="Map" instance=ExtResource("1_tffej")]
+script = ExtResource("2_22vm4")
 
 [node name="Image" type="Sprite2D" parent="Ground" index="0"]
 position = Vector2(18, -401)
@@ -25,7 +33,56 @@ layer_1/tile_data = PackedInt32Array(786432, 262144, 2, 786433, 262144, 2, 78643
 layer_2/name = "InnerWalls"
 layer_2/tile_data = PackedInt32Array(786448, 327680, 8, 720912, 65536, 6, 655376, 65536, 6, 589840, 65536, 6, 524303, 0, 6, 524302, 0, 6, 524301, 0, 6, 524300, 0, 6, 524299, 0, 6, 524298, 0, 6, 524288, 0, 6, 524289, 0, 6, 524290, 0, 6, 524291, 0, 6, 524292, 0, 6, 524293, 0, 6, 524294, 0, 6, 524295, 0, 6, 524296, 0, 6, 524297, 0, 6, 589823, 196608, 6, 655359, 327680, 8, 393215, 65536, 6, 458751, 65536, 6, 524287, 65536, 6, 327679, 327680, 6, 589822, 0, 6, 589821, 262144, 7, 589817, 393216, 7, 589816, 131072, 7, 655352, 327680, 8, 851960, 327680, 8, 786424, 327680, 6, 589807, 0, 6, 589808, 0, 6, 589809, 0, 6, 589810, 0, 6, 589811, 0, 6, 589812, 0, 6, 589813, 0, 6, 589814, 0, 6, 589815, 0, 6, 589806, 262144, 7, 196590, 262144, 7, 196591, 0, 6, 196592, 0, 6, 196593, 0, 6, 196594, 0, 6, 196595, 0, 6, 196596, 65536, 7, 262132, 65536, 6, 327668, 0, 8, 327669, 0, 6, 327670, 0, 6, 327671, 0, 6, 327672, 0, 6, 327673, 393216, 7, 131071, 327680, 8, -327681, 65536, 6, -262145, 65536, 6, -196609, 65536, 6, 65535, 65536, 6, -393217, 327680, 6, -786433, 65536, 6, -720897, 65536, 6, -589825, 327680, 8, -851969, 131072, 7, -917504, 0, 6, -917503, 0, 6, -917502, 0, 6, -917501, 0, 6, -917500, 65536, 7, -851964, 65536, 6, -786428, 65536, 6, -720892, 0, 8, -720891, 0, 6, -720890, 0, 6, -720889, 0, 6, -720888, 0, 6, -720887, 0, 6, -720886, 0, 6, -720885, 0, 6, -720884, 65536, 8, -917492, 65536, 6, -851956, 65536, 6, -983028, 65536, 6, -1048564, 327680, 6, -851970, 262144, 7, -851974, 393216, 7, -851975, 131072, 7, -851976, 0, 6, -851977, 0, 6, -786442, 65536, 8, -851978, 0, 7, -786443, 0, 7, -720907, 65536, 8, -720911, 0, 6, -720910, 0, 6, -720909, 0, 6, -720908, 0, 6, -720912, 0, 7, -655376, 65536, 6, -589840, 65536, 6, -524304, 0, 8, -524303, 0, 6, -524302, 0, 6, -524301, 0, 6, -524300, 0, 6, -524299, 131072, 7, -458763, 65536, 6, -393227, 65536, 6, -327691, 65536, 6, -262155, 65536, 6, -196619, 65536, 6, -131083, 65536, 6, -65547, 65536, 6, -11, 65536, 8, -17, 0, 6, -16, 0, 6, -15, 0, 6, -14, 0, 6, -13, 0, 6, -12, 0, 6, -18, 262144, 7, -524298, 0, 6, -524297, 0, 6, -524296, 0, 6, -524295, 393216, 7, -786439, 65536, 6, -720903, 65536, 6, -655367, 327680, 8, -65537, 131072, 8, -131073, 65536, 6, -1, 65536, 6, -131072, 0, 6, -131071, 0, 6, -131070, 0, 6, -131069, 0, 6, -131068, 0, 6, -131066, 0, 6, -131065, 0, 6, -131064, 0, 6, -131063, 0, 6, -131062, 0, 6, -131060, 0, 6, -131059, 0, 6, -131058, 0, 6, -131057, 0, 6, -131056, 0, 6, -131055, 0, 6, -131054, 0, 6, -131053, 393216, 7, -655361, 131072, 8, -720896, 0, 6, -720895, 393216, 7, -131067, 196608, 8, -327675, 65536, 6, -262139, 65536, 6, -196603, 65536, 6, -458747, 327680, 6, -393214, 0, 6, -393213, 0, 6, -393212, 0, 6, -393215, 262144, 7, -131061, 196608, 8, -327669, 65536, 6, -262133, 65536, 6, -196597, 65536, 6, -458741, 327680, 6, -393211, 196608, 6, -393210, 0, 6, -393206, 0, 6, -393209, 393216, 7, -393207, 262144, 7, -393205, 196608, 6, -393204, 0, 6, -393203, 0, 6, -393202, 0, 6, -393201, 131072, 7, -327665, 65536, 6, -262129, 327680, 8, -393200, 0, 6, -393199, 393216, 7, -786420, 131072, 8, -786419, 0, 6, -786418, 0, 6, -786414, 0, 6, -786415, 262144, 7, -786417, 393216, 7, -786413, 393216, 7, 524304, 131072, 7, 524305, 393216, 7)
 
-[node name="Lights" type="Node2D" parent="Ground" index="2"]
+[node name="Celling" type="Node2D" parent="Ground" index="2"]
+position = Vector2(653, 706)
+
+[node name="CellingHole" parent="Ground/Celling" index="0" instance=ExtResource("6_gciyc")]
+position = Vector2(-1364, 2095)
+
+[node name="CellingHole2" parent="Ground/Celling" index="1" instance=ExtResource("6_gciyc")]
+position = Vector2(3196, 1434)
+
+[node name="CellingHole4" parent="Ground/Celling" index="2" instance=ExtResource("6_gciyc")]
+position = Vector2(3784, 4127)
+
+[node name="CellingHole3" parent="Ground/Celling" index="3" instance=ExtResource("6_gciyc")]
+position = Vector2(3230, -2838)
+
+[node name="CellingInfrastructure" parent="Ground/Celling" index="4" instance=ExtResource("7_tbdss")]
+position = Vector2(5369, 671)
+scale = Vector2(2.36397, 1.82997)
+
+[node name="CellingInfrastructure2" parent="Ground/Celling" index="5" instance=ExtResource("7_tbdss")]
+position = Vector2(2451, 694)
+scale = Vector2(2.36397, 1.82997)
+
+[node name="CellingInfrastructure3" parent="Ground/Celling" index="6" instance=ExtResource("7_tbdss")]
+position = Vector2(-2796, -2723)
+rotation = 1.5708
+scale = Vector2(2.36397, 1.82997)
+
+[node name="CellingInfrastructure4" parent="Ground/Celling" index="7" instance=ExtResource("7_tbdss")]
+position = Vector2(-2789, -979)
+rotation = 1.5708
+scale = Vector2(2.36397, 1.82997)
+
+[node name="CellingLattice" parent="Ground/Celling" index="8" instance=ExtResource("8_6vika")]
+position = Vector2(-3009, 1899)
+scale = Vector2(-2.24169, -3.13895)
+
+[node name="CellingLattice2" parent="Ground/Celling" index="9" instance=ExtResource("8_6vika")]
+position = Vector2(-6145, -2424)
+scale = Vector2(-2.24169, -3.13895)
+
+[node name="CellingLattice3" parent="Ground/Celling" index="10" instance=ExtResource("8_6vika")]
+position = Vector2(303, -4102)
+scale = Vector2(-2.24169, -3.13895)
+
+[node name="CellingLattice4" parent="Ground/Celling" index="11" instance=ExtResource("8_6vika")]
+position = Vector2(5574, -4915)
+scale = Vector2(-3.6325, -6.37707)
+
+[node name="Lights" type="Node2D" parent="Ground" index="3"]
 
 [node name="Light" parent="Ground/Lights" index="0" instance=ExtResource("3_kuwb8")]
 position = Vector2(-5781, 1012)
@@ -154,6 +211,9 @@ rotation = 1.5708
 position = Vector2(-3976, -1684)
 rotation = 4.71239
 
+[node name="Player" parent="." index="2"]
+position = Vector2(2175, 4569)
+
 [node name="PointLight2D" type="PointLight2D" parent="Player" index="8"]
 energy = 1.36
 texture = ExtResource("5_hmux6")
@@ -162,3 +222,12 @@ texture = ExtResource("5_hmux6")
 color = Color(0.37918, 0.37918, 0.37918, 1)
 energy = 1.6
 blend_mode = 1
+
+[node name="Exit" type="Area2D" parent="." index="5"]
+position = Vector2(1667, 4764)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit" index="0"]
+position = Vector2(481, 175)
+shape = SubResource("RectangleShape2D_isk6i")
+
+[connection signal="body_entered" from="Exit" to="." method="_exit_body_entered"]

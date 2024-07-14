@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dknkdyiqad6ha"]
+
+[ext_resource type="Texture2D" uid="uid://bue1hdmuchdix" path="res://Graphics/lights/textures/circle.png" id="1_f2vxv"]
+
+[node name="LightObject" type="Node2D"]
+
+[node name="Image" type="Sprite2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(4.57764e-05, 10.0001)
+scale = Vector2(0.38, 0.315)
+energy = 0.82
+texture = ExtResource("1_f2vxv")

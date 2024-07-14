@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1wlnbxhvv8ef"]
+
+[ext_resource type="PackedScene" uid="uid://dknkdyiqad6ha" path="res://Scenes/Objects/LightObject.tscn" id="1_jbe4p"]
+[ext_resource type="Texture2D" uid="uid://bd5vrfj53eim0" path="res://Graphics/lights/overlays/lattice.png" id="2_qdfbb"]
+
+[node name="CellingLattice" instance=ExtResource("1_jbe4p")]
+
+[node name="Image" parent="." index="0"]
+modulate = Color(1, 1, 1, 0.0745098)
+scale = Vector2(2, 2.09)
+texture = ExtResource("2_qdfbb")
+
+[node name="PointLight2D" parent="." index="1"]
+position = Vector2(14.5, 2)
+scale = Vector2(2, 1.09)
+energy = 0.6

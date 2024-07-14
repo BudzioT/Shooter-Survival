@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://gtke2h554o5n"]
+[gd_scene load_steps=5 format=3 uid="uid://gtke2h554o5n"]
 
 [ext_resource type="Texture2D" uid="uid://bt4xub8ai3upr" path="res://Graphics/objects/wall_lamp.png" id="1_owdnp"]
 [ext_resource type="Texture2D" uid="uid://bue1hdmuchdix" path="res://Graphics/lights/textures/circle.png" id="2_pj4qd"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_43qxo"]
 polygon = PackedVector2Array(-251, 57, -256, 54, -260, 49, -259, 45, -255, 39, -250, 36, -245, 35, -244, 37, -231, 28, -227, 23, -227, 21, -230, 19, -230, -14, -227, -18, -225, -26, -220, -29, -216, -29, -215, -27, -214, -22, -214, 30, -218, 31, -227, 40, -227, 40, -237, 46, -237, 46, -237, 49, -241, 54, -241, 54, -247, 57)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vb08b"]
+polygon = PackedVector2Array(-289, -97, -273, -90, -256, -84, -233, -83, 250, -84, 262, -88, 278, -96, 274, -101, -286, -101)
 
 [node name="LightLamp" type="StaticBody2D"]
 collision_layer = 4
@@ -35,3 +38,6 @@ occluder = SubResource("OccluderPolygon2D_43qxo")
 position = Vector2(-7, 0)
 scale = Vector2(-1, 1)
 occluder = SubResource("OccluderPolygon2D_43qxo")
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_vb08b")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdas2umbrvee1"]
+[gd_scene load_steps=4 format=3 uid="uid://cdas2umbrvee1"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/Map.gd" id="1_gpayx"]
+[ext_resource type="PackedScene" uid="uid://djlq57jqhgl5l" path="res://Scenes/UserInterface/Ui.tscn" id="3_31610"]
 [ext_resource type="PackedScene" uid="uid://dhla60233jwmr" path="res://Scenes/Player/Player.tscn" id="3_unffv"]
 
 [node name="Map" type="Node2D"]
@@ -23,6 +24,8 @@ zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 
 [node name="Enemies" type="Node2D" parent="."]
+
+[node name="UI" parent="." instance=ExtResource("3_31610")]
 
 [connection signal="used_main_action" from="Player" to="." method="_used_main_action"]
 [connection signal="used_secondary_action" from="Player" to="." method="_used_secondary_action"]
