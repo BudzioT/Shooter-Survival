@@ -9,6 +9,11 @@ signal used_secondary_action(pos, direction)
 var main_action: bool = true
 var secondary_action: bool = true
 
+# Max player's speed
+@export var max_speed: int = 450
+# His current speed
+var speed: int = max_speed
+
 # Update the player in every frame
 func _process(delta):
 	# Update player's position
@@ -22,7 +27,7 @@ func _update(_delta):
 	# Get the player's direction vector
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
 	# Update his velocity
-	velocity = direction * 400
+	velocity = direction * speed
 	
 	# Move the player, delta is applied automatically
 	move_and_slide()

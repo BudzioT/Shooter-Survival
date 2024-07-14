@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Area2D
 
 
 # Speed of laser movement
@@ -16,3 +16,8 @@ func _update(delta):
 	# Move the laser
 	position += direction * speed * delta
 	
+
+# Check and handle laser colliding with a body
+func _body_entered(body):
+	# Destroy the laser
+	queue_free()

@@ -1,6 +1,7 @@
-[gd_scene load_steps=34 format=3 uid="uid://diokfykyqxn8h"]
+[gd_scene load_steps=35 format=3 uid="uid://diokfykyqxn8h"]
 
 [ext_resource type="Texture2D" uid="uid://cafk0sq32w63j" path="res://Graphics/tilesets/interior.png" id="1_3woa0"]
+[ext_resource type="Script" path="res://Scenes/Buildings/Building.gd" id="1_qrxwr"]
 [ext_resource type="PackedScene" uid="uid://mlp3i71v6xmj" path="res://Scenes/Objects/Light.tscn" id="2_3ulv7"]
 [ext_resource type="PackedScene" uid="uid://gtke2h554o5n" path="res://Scenes/Objects/LightLamp.tscn" id="3_e8m3i"]
 
@@ -294,6 +295,7 @@ sources/0 = SubResource("TileSetAtlasSource_m7n71")
 
 [node name="Building" type="Area2D"]
 collision_layer = 16
+script = ExtResource("1_qrxwr")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-2020, -1035, -2088, -1011, -2155, -963, -2188, -913, -2215, -834, -2219, -793, -2215, 1214, -2189, 1295, -2148, 1354, -2083, 1403, -2001, 1435, -1737, 1436, 389, 1436, 392, 1289, 1171, 1295, 1171, 1433, 2403, 1433, 2499, 1387, 2556, 1336, 2601, 1232, 2607, 1063, 2604, -849, 2574, -922, 2514, -990, 2440, -1030, 2440, -1030, 2385, -1044, 1971, -1047)
@@ -351,3 +353,6 @@ position = Vector2(1343, -1085)
 [node name="LightLamp2" parent="Lamps" instance=ExtResource("3_e8m3i")]
 position = Vector2(1901, 1492)
 rotation = -3.14159
+
+[connection signal="body_entered" from="." to="." method="_body_entered"]
+[connection signal="body_exited" from="." to="." method="_body_exited"]

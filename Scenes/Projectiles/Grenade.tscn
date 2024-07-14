@@ -15,6 +15,36 @@ radius = 76.0263
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4nc7r"]
 polygon = PackedVector2Array(-26, 7, -27, 8, -26, 9, -26, 10, -25, 12, -23, 15, -22, 15, -20, 17, -18, 19, -16, 21, -13, 23, -8, 25, -4, 26, 0, 26, 4, 26, 8, 25, 8, 26, 11, 25, 14, 24, 15, 23, 15, 22, 18, 20, 21, 17, 23, 14, 24, 12, 25, 10, 26, 8, 26, 5, 27, 3, 27, 0, 27, -3, 26, -5, 26, -6, 27, -7, 27, -9, 26, -11, 25, -12, 24, -12, 23, -13, 20, -17, 17, -20, 14, -22, 10, -24, 5, -26, 2, -26, -5, -26, -6, -26, -9, -25, -11, -24, -12, -25, -13, -25, -14, -25, -16, -24, -17, -23, -17, -22, -17, -21, -20, -18, -22, -16, -24, -13, -25, -11, -26, -9, -27, -5, -27, -2, -27, 2, -26, 4)
 
+[sub_resource type="Animation" id="Animation_3a4w5"]
+resource_name = "Blink"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.4, 0.5, 0.7, 0.9, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [16.0, 10.35, 16.0, 3.2, 10.35, 16.0, 3.08, 10.35, 16.0, 3.08, 10.35, 16.0, 3.08, 10.35, 16.0, 3.08, 10.35, 16.0, 3.08, 10.35]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"explode"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_flj8h"]
 resource_name = "Explosion"
 length = 2.8
@@ -68,6 +98,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../PointLight2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_jfgbv"]
 length = 0.001
@@ -96,36 +138,6 @@ tracks/1/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_3a4w5"]
-resource_name = "Blink"
-length = 2.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../PointLight2D:energy")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.2, 0.4, 0.5, 0.7, 0.9, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [16.0, 10.35, 16.0, 3.2, 10.35, 16.0, 3.08, 10.35, 16.0, 3.08, 10.35, 16.0, 3.08, 10.35, 16.0, 3.08, 10.35, 16.0, 3.08, 10.35]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(2.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"explode"
-}]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_my8g1"]
 _data = {
 "Blink": SubResource("Animation_3a4w5"),
@@ -140,6 +152,7 @@ physics_material_override = SubResource("PhysicsMaterial_qq7sb")
 gravity_scale = 0.0
 linear_damp = 1.6
 script = ExtResource("1_78xd8")
+speed = 800
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 1)
