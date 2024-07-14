@@ -4,5 +4,5 @@ class_name ItemContainer
 
 
 # Handle getting hit
-func hit():
+func hit() -> void:
 	print("OBJECT HIT")

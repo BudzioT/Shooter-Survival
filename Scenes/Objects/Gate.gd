@@ -6,11 +6,11 @@ signal gate_entered(body)
 signal gate_exited(body)
 
 # Handle entering the gate
-func _gate_area_entered(body):
+func _gate_area_entered(body) -> void:
 	# Emit the signal that body entered the gate
 	gate_entered.emit(body)
 
 # Handle exiting the gate
-func _gate_area_exited(body):
+func _gate_area_exited(body) -> void:
 	# Emit gate exited signal
 	gate_exited.emit(body)

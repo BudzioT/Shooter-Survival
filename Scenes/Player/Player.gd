@@ -24,7 +24,7 @@ func _process(delta):
 	_handle_input()
 	
 # Update player's position
-func _update(_delta):
+func _update(_delta) -> void:
 	# Get the player's direction vector
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
 	# Update his velocity
@@ -37,7 +37,7 @@ func _update(_delta):
 	look_at(get_global_mouse_position())
 	
 # Check for input and handle it
-func _handle_input():
+func _handle_input() -> void:
 	# Get the player's direction and normalize it
 	var player_direction = (get_global_mouse_position() - position).normalized()
 	
@@ -46,7 +46,7 @@ func _handle_input():
 	_secondary_action(player_direction)
 	
 # Shoot a  laser projectile from the weapon
-func _main_action(player_direction):
+func _main_action(player_direction) -> void:
 	# If player presses shoot action and is allowed to do it
 	if Input.is_action_pressed("MainAction") and main_action:
 		# If player has enough ammunition
@@ -72,7 +72,7 @@ func _main_action(player_direction):
 			used_main_action.emit(pos, player_direction)
 
 # Throw a grenade
-func _secondary_action(player_direction):
+func _secondary_action(player_direction) -> void:
 	# If user presses secondary action and is able to do it
 	if Input.is_action_pressed("SecondaryAction") and secondary_action:
 		# If player has any grenades left
@@ -95,9 +95,9 @@ func _secondary_action(player_direction):
 			used_secondary_action.emit(pos, player_direction)
 
 # When main action cooldown ends, allow the player to use it again
-func _on_main_timer_timeout():
+func _on_main_timer_timeout() -> void:
 	main_action = true
 
 # Allow the player to use secondary action after cooldown ends
-func _on_secondary_timer_timeout():
+func _on_secondary_timer_timeout() -> void:
 	secondary_action = true

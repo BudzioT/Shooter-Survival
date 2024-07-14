@@ -5,7 +5,7 @@ extends RigidBody2D
 @export var speed : int = 400
 
 # Explode the grenade
-func explode():
+func explode() -> void:
 	# Make explosion visible
 	$Explosion.visible = true
 	

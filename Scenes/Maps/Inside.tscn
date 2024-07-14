@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b642ewwvdwnup"]
+[gd_scene load_steps=13 format=3 uid="uid://b642ewwvdwnup"]
 
 [ext_resource type="PackedScene" uid="uid://cdas2umbrvee1" path="res://Scenes/Maps/Map.tscn" id="1_tffej"]
 [ext_resource type="Texture2D" uid="uid://c8nlo1ehnwdq0" path="res://Graphics/ground/dirt.png" id="2_4xihd"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://vdi3l1udcyul" path="res://Scenes/Objects/CellingHole.tscn" id="6_gciyc"]
 [ext_resource type="PackedScene" uid="uid://dao6hkggn4u4" path="res://Scenes/Objects/CellingInfrastructure.tscn" id="7_tbdss"]
 [ext_resource type="PackedScene" uid="uid://b1wlnbxhvv8ef" path="res://Scenes/Objects/CellingLattice.tscn" id="8_6vika"]
+[ext_resource type="PackedScene" uid="uid://dvtopn8a6ysy1" path="res://Scenes/Items/Item.tscn" id="10_rvdon"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_isk6i"]
 size = Vector2(1164, 412)
@@ -211,7 +212,10 @@ rotation = 1.5708
 position = Vector2(-3976, -1684)
 rotation = 4.71239
 
-[node name="Player" parent="." index="2"]
+[node name="Item" parent="Items" index="0" instance=ExtResource("10_rvdon")]
+position = Vector2(271, 4263)
+
+[node name="Player" parent="." index="3"]
 position = Vector2(2175, 4569)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" index="8"]

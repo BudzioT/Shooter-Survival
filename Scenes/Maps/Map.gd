@@ -11,7 +11,7 @@ var grenade_scene : PackedScene = preload("res://Scenes/Projectiles/Grenade.tscn
 
 
 # Make the player shoot a laser
-func _used_main_action(pos, direction):
+func _used_main_action(pos, direction) -> void:
 	# Create a laser instance
 	var laser = laser_scene.instantiate()
 	
@@ -29,7 +29,7 @@ func _used_main_action(pos, direction):
 	$UI.update_projectile_label()
 
 # Make the player throw a grenade
-func _used_secondary_action(pos, direction):
+func _used_secondary_action(pos, direction) -> void:
 	# Create the grenade
 	var grenade = grenade_scene.instantiate()
 	
@@ -47,7 +47,7 @@ func _used_secondary_action(pos, direction):
 
 
 # Handle player entering a building
-func _building_player_entered():
+func _building_player_entered() -> void:
 	# Create a tween in the map's nodes tree and store it
 	var tween = get_tree().create_tween()
 	# Set parallel on tween to true
@@ -59,7 +59,7 @@ func _building_player_entered():
 	tween.tween_property($Player, "modulate:a", 0.4, 2)
 
 # Handle player exiting the building
-func _on_building_player_left():
+func _on_building_player_left() -> void:
 	# Get the tween
 	var tween = get_tree().create_tween()
 	# Set tween to make changes in parallel
@@ -70,7 +70,7 @@ func _on_building_player_left():
 	tween.tween_property($Player, "modulate:a", 1, 2)
 
 # Handle player entering small building
-func _small_building_player_entered():
+func _small_building_player_entered() -> void:
 	# Set the player's camera zoom property to a closer one and alpha to smaller one in parallel
 	var tween = get_tree().create_tween()
 	tween.set_parallel(true)
@@ -79,7 +79,7 @@ func _small_building_player_entered():
 	tween.tween_property($Player, "modulate:a", 0.4, 3)
 
 # Handle player leaving a small building
-func _small_building_player_left():
+func _small_building_player_left() -> void:
 	# Revert player's zoom and alpha back to normal, doing it at the same time
 	var tween = get_tree().create_tween()
 	tween.set_parallel(true)

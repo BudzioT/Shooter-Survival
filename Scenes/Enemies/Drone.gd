@@ -17,6 +17,6 @@ func _update():
 	move_and_slide()
 	
 # Handle hitting the drone
-func hit():
+func hit() -> void:
 	print("DRONE HIT")
 	

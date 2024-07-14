@@ -24,7 +24,7 @@ func _update(delta):
 	
 
 # Check and handle laser colliding with a body
-func _body_entered(body):
+func _body_entered(body) -> void:
 	# If this was an enemy, hit it
 	if "hit" in body:
 		body.hit()
@@ -33,5 +33,5 @@ func _body_entered(body):
 	queue_free()
 
 # When laser's life timer ends, destroy it
-func _life_timer_timeout():
+func _life_timer_timeout() -> void:
 	queue_free()

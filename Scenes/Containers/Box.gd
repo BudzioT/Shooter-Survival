@@ -2,5 +2,5 @@ extends ItemContainer
 
 
 # Handle hitting the box
-func hit():
+func hit() -> void:
 	print("BOX HIT")

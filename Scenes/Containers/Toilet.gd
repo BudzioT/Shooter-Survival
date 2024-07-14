@@ -2,5 +2,5 @@ extends ItemContainer
 
 
 # Handle Toilet's hits
-func hit():
+func hit() -> void:
 	print("TOILET HIT")
