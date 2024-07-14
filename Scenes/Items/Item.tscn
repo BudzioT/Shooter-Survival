@@ -22,3 +22,5 @@ shape = SubResource("CircleShape2D_ttiud")
 scale = Vector2(0.280001, 0.280001)
 energy = 0.8
 texture = ExtResource("2_aw004")
+
+[connection signal="body_entered" from="." to="." method="_body_entered"]

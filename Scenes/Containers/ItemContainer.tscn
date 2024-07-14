@@ -5,6 +5,10 @@
 [node name="ItemContainer" type="StaticBody2D"]
 script = ExtResource("1_sxxxg")
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
 [node name="Image" type="Sprite2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="LidImage" type="Sprite2D" parent="."]
+
+[node name="ItemSpawner" type="Node2D" parent="."]

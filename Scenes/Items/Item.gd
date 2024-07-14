@@ -3,6 +3,7 @@ extends Area2D
 
 # Rotation speed of the item
 var rotation_speed: int = 5
+
 # Type of items available (ammunition gets the highest chance to be chosen)
 var types = ["ammo", "ammo", "ammo", "ammo", "ammo", "grenade", "health"]
 # This item's type, chosen randomly
@@ -28,3 +29,10 @@ func _ready():
 func _process(delta):
 	# Rotate it
 	rotation += rotation_speed * delta
+
+# Handle player going into an item
+func _body_entered(body):
+	# Add item's powerup to the player
+	body.powerup(type)
+	# Destroy the item
+	queue_free()

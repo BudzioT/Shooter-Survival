@@ -4,6 +4,8 @@ extends CharacterBody2D
 # Signals for player's actions
 signal used_main_action(pos, direction)
 signal used_secondary_action(pos, direction)
+# Signal that stats have changed
+signal stats_changed(type)
 
 # Main and secondary allow action flags
 var main_action: bool = true
@@ -101,3 +103,18 @@ func _on_main_timer_timeout() -> void:
 # Allow the player to use secondary action after cooldown ends
 func _on_secondary_timer_timeout() -> void:
 	secondary_action = true
+	
+# Add item's powerup
+func powerup(type : String) -> void:
+	# If it's an ammo type, add ammunitions
+	if type == "ammo":
+		Global.projectile_count += 5
+	# Otherwise if type is grenade, add 3 grenades
+	elif type == "grenade":
+		Global.grenade_count += 3
+	# If it's a health type, increase player's health by 10, if it isn't max already
+	elif type == "health":
+		Global.health += 10
+		
+	# Emit signal that statistics have changed with the given type
+	stats_changed.emit(type)

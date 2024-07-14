@@ -1,6 +1,9 @@
 extends CanvasLayer
 
 
+# Health bar
+@onready var healthbar: TextureProgressBar = $HealthBar/TextureProgressBar
+
 # Current projectile label
 @onready var projectile_label: Label = $Projectiles/VBoxContainer/Label
 # Current grenade label
@@ -17,6 +20,11 @@ const red: Color = Color("A12020")
 
 # Get the user's interface ready
 func _ready():
+	# Update the health
+	update_health_bar()
+	# Connect health change signal to the update function, so the bar always updates
+	Global.connect("health_changed", update_health_bar)
+	
 	# Set the projectile and grenade count labels
 	update_projectile_label()
 	update_grenade_label()
@@ -32,6 +40,10 @@ func update_grenade_label() -> void:
 	grenade_label.text = str(Global.grenade_count)
 	# Set the proper color
 	_set_color(Global.grenade_count, grenade_label, grenade_icon)
+	
+# Update player's health bar
+func update_health_bar() -> void:
+	healthbar.value = Global.health
 	
 # Set the color of given label, icon depending on given count
 func _set_color(count: int, label: Label, icon: TextureRect) -> void:

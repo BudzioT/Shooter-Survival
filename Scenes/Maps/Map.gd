@@ -86,3 +86,13 @@ func _small_building_player_left() -> void:
 	
 	tween.tween_property($Player/Camera2D, "zoom", Vector2(0.5, 0.5), 3)
 	tween.tween_property($Player, "modulate:a", 1, 3)
+
+# Handle player's stats changing
+func _player_stats_changed(type):
+	# Change user interface's data depending on the type of statistic changed
+	# Update projectiles count
+	if type == "ammo":
+		$UI.update_projectile_label()
+	# Update grenade
+	elif type == "grenade":
+		$UI.update_grenade_label()
