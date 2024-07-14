@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Shooter-Survival"
-run/main_scene="res://Scenes/Maps/Map.tscn"
+run/main_scene="res://Scenes/Maps/Outside.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 

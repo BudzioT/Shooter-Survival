@@ -24,4 +24,9 @@ color = Color(0.403922, 1, 1, 1)
 shadow_enabled = true
 texture = ExtResource("3_eyejm")
 
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_body_entered"]
+[connection signal="timeout" from="LifeTimer" to="." method="_life_timer_timeout"]

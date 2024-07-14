@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdi4g5yxluo06"]
+
+[ext_resource type="PackedScene" uid="uid://djbcx0xtckblb" path="res://Scenes/Containers/ItemContainer.tscn" id="1_wadik"]
+[ext_resource type="Script" path="res://Scenes/Containers/Toilet.gd" id="2_31nku"]
+[ext_resource type="Texture2D" uid="uid://djhli6sor7pqv" path="res://Graphics/objects/toilet.png" id="2_o4fxp"]
+[ext_resource type="Texture2D" uid="uid://infwtntyg6o4" path="res://Graphics/objects/lid.png" id="4_6hu2a"]
+
+[node name="Toilet" instance=ExtResource("1_wadik")]
+script = ExtResource("2_31nku")
+
+[node name="Image" parent="." index="0"]
+texture = ExtResource("2_o4fxp")
+
+[node name="LidImage" type="Sprite2D" parent="." index="1"]
+position = Vector2(0, 29)
+texture = ExtResource("4_6hu2a")
+
+[node name="CollisionPolygon2D" parent="." index="2"]
+polygon = PackedVector2Array(-110, -61, -107, -59, -104, -58, -99, -58, -95, -58, -93, -59, -92, -57, -92, -55, -94, -52, -99, -42, -101, -36, -101, -29, -101, -17, -101, -10, -100, 1, -98, 12, -94, 26, -89, 39, -83, 50, -75, 64, -64, 78, -52, 93, -42, 103, -33, 111, -22, 118, -12, 123, -1, 125, 6, 124, 17, 120, 28, 115, 41, 104, 50, 95, 58, 85, 69, 71, 82, 53, 90, 35, 96, 21, 99, 5, 100, -5, 101, -22, 100, -38, 95, -50, 91, -57, 92, -60, 95, -60, 98, -58, 102, -57, 108, -60, 113, -64, 117, -71, 118, -77, 118, -100, 116, -104, 109, -111, 102, -116, 95, -118, 91, -116, 91, -118, 92, -120, 91, -123, 88, -125, 82, -125, -88, -125, -91, -123, -93, -121, -93, -119, -91, -117, -91, -116, -94, -118, -97, -118, -103, -115, -109, -111, -115, -106, -117, -103, -118, -98, -119, -90, -119, -75, -118, -70, -114, -64)

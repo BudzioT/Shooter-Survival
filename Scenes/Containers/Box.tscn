@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://n0wf6yodr084"]
+
+[ext_resource type="PackedScene" uid="uid://djbcx0xtckblb" path="res://Scenes/Containers/ItemContainer.tscn" id="1_mo1rq"]
+[ext_resource type="Texture2D" uid="uid://cyqsnss3xb6qe" path="res://Graphics/objects/Box.png" id="2_44d2d"]
+[ext_resource type="Script" path="res://Scenes/Containers/Box.gd" id="2_g2hyc"]
+
+[node name="ItemContainer" instance=ExtResource("1_mo1rq")]
+script = ExtResource("2_g2hyc")
+
+[node name="Image" parent="." index="0"]
+texture = ExtResource("2_44d2d")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-177, 112, -177, 114, -176, 117, -174, 120, -172, 123, -168, 125, -164, 128, -160, 129, 161, 129, 166, 127, 172, 123, 175, 118, 178, 112, 178, 103, 178, -108, 177, -111, 174, -116, 171, -120, 166, -123, 161, -125, 158, -125, 124, -125, 123, -128, 122, -129, 105, -129, 104, -128, 102, -126, 102, -125, -158, -125, -161, -125, -164, -123, -168, -122, -171, -119, -176, -112, -177, -109, -178, -108)

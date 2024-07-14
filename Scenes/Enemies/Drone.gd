@@ -16,3 +16,7 @@ func _update():
 	# Move it and slide when colliding
 	move_and_slide()
 	
+# Handle hitting the drone
+func hit():
+	print("DRONE HIT")
+	

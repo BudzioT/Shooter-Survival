@@ -1,18 +1,14 @@
 extends Node2D
 
+# Name this class Level, for easier inheritance
+class_name Level
+
 
 # Scene with laser projectile
 var laser_scene : PackedScene = preload("res://Scenes/Projectiles/Laser.tscn")
 # Scene with grenade projectile
 var grenade_scene : PackedScene = preload("res://Scenes/Projectiles/Grenade.tscn")
 
-
-# Handle entering the gate
-func _gate_entered(_body):
-	# Create a tween
-	var tween = create_tween()
-	# Set player's speed to 0
-	tween.tween_property($Player, "speed", 0, 0.5)
 
 # Handle exiting the gate
 func _gate_exited(_body):
