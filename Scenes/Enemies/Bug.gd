@@ -41,7 +41,10 @@ func hit():
 		# Start the hit cooldown
 		$Timers/HitCooldown.start()
 		
-		
+		# Change the shader color to indicate damage
+		$Animation.material.set_shader_parameter("filter", 1.0)
+		# Emit some particles
+		$Particles/HitParticles.emitting = true
 		
 		# Make Bug dissapear after killing it
 		if health <= 0:
@@ -91,3 +94,5 @@ func _attack_cooldown_timeout():
 func _hit_cooldown_timeout():
 	# Make the enemy vulnerable again
 	vulnerable = true
+	# Revert Bug's color
+	$Animation.material.set_shader_parameter("filter", 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dqeoqxeec5qlj"]
+[gd_scene load_steps=43 format=3 uid="uid://dqeoqxeec5qlj"]
 
 [ext_resource type="Texture2D" uid="uid://ctwlt6sj20hvb" path="res://Graphics/enemies/bug/attack/00010.png" id="1_f776o"]
 [ext_resource type="Script" path="res://Scenes/Enemies/Bug.gd" id="1_gky3o"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://dwqctfqpvrxqo" path="res://Graphics/enemies/bug/walk/00007.png" id="29_b0qfm"]
 [ext_resource type="Texture2D" uid="uid://ccgiqver602x2" path="res://Graphics/enemies/bug/walk/00008.png" id="30_ydygh"]
 [ext_resource type="Texture2D" uid="uid://bue1hdmuchdix" path="res://Graphics/lights/textures/circle.png" id="32_i1fcd"]
+[ext_resource type="Texture2D" uid="uid://dhnphps0van25" path="res://Graphics/explosions/grunge.png" id="34_lt5ov"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wwk8l"]
 radius = 966.033
@@ -148,6 +149,33 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5m23v"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_iopx3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xq15r"]
+curve = SubResource("Curve_iopx3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yvkiy"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(1, 1, 0)
+spread = 156.945
+initial_velocity_min = 130.71
+initial_velocity_max = 189.54
+gravity = Vector3(0, 98, 0)
+scale_min = 0.2
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_xq15r")
+anim_offset_max = 1.0
+
 [node name="Bug" type="CharacterBody2D" groups=["Entity"]]
 collision_layer = 2
 collision_mask = 15
@@ -192,6 +220,19 @@ one_shot = true
 
 [node name="HitCooldown" type="Timer" parent="Timers"]
 wait_time = 0.5
+one_shot = true
+
+[node name="Particles" type="Node2D" parent="."]
+
+[node name="HitParticles" type="GPUParticles2D" parent="Particles"]
+modulate = Color(0, 0.172549, 0.00784314, 0.482353)
+material = SubResource("CanvasItemMaterial_5m23v")
+position = Vector2(-7, -7)
+emitting = false
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_yvkiy")
+texture = ExtResource("34_lt5ov")
+lifetime = 0.7
 one_shot = true
 
 [connection signal="body_entered" from="NoticeArea" to="." method="_notice_area_body_entered"]
