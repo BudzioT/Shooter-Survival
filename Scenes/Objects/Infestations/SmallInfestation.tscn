@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://ddxsr5uffx5k2" path="res://Graphics/objects/infestation/small.png" id="2_ow54k"]
 
 [node name="SmallInfestation" instance=ExtResource("1_gx4f7")]
+collision_layer = 4
+collision_mask = 11
 
 [node name="Image" parent="." index="0"]
 texture = ExtResource("2_ow54k")
