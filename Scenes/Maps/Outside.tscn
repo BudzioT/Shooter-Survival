@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cojolu4o5toc5"]
+[gd_scene load_steps=46 format=3 uid="uid://cojolu4o5toc5"]
 
 [ext_resource type="PackedScene" uid="uid://cdas2umbrvee1" path="res://Scenes/Maps/Map.tscn" id="1_38wlu"]
 [ext_resource type="Texture2D" uid="uid://cjkck1qapw5m2" path="res://Graphics/ground/stones.png" id="2_73trm"]
@@ -30,7 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://b4xe2fp5q41tn" path="res://Scenes/Containers/ElectricBox.tscn" id="20_w3t77"]
 [ext_resource type="Texture2D" uid="uid://6vbnlx5qrbck" path="res://Graphics/decals/brushes/brush052.png" id="25_3t1x0"]
 [ext_resource type="PackedScene" uid="uid://b41tijohpvxot" path="res://Scenes/Objects/Plain/Corner.tscn" id="25_iqkly"]
-[ext_resource type="PackedScene" uid="uid://xtckpivp1ivm" path="res://Scenes/Enemies/Car.tscn" id="30_tyekr"]
+[ext_resource type="PackedScene" uid="uid://cxvyu86gl388r" path="res://Scenes/Enemies/Hunter.tscn" id="30_2fhf4"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bqrjl"]
 polygon = PackedVector2Array(195, -58.9994, 195, 58.8331, 54.1221, 58.9663, 53.6766, 61.7504, 51.1937, 63.3968, -61.3134, 62.2063, -67.0677, 56.452, -66.9685, -62.0575, -65.5795, -63.5457, -62.4047, -65.0338, 55.1622, -64.8354, 55.141, -59.1397)
@@ -162,12 +162,6 @@ _data = {
 "points": PackedVector2Array(432.488, -149.502, -432.488, 149.502, -1510, 4281, 317.48, 520.668, -317.48, -520.668, -2734, 2922, 152.391, 292.082, -152.391, -292.082, -3084, 1940, -12.6992, 342.879, 12.6992, -342.879, -3232, 1012, -406.375, 38.0976, 406.375, -38.0976, -2330, 703, -241.285, -50.7968, 241.285, 50.7968, -1227, 1012, -126.992, -88.8945, 126.992, 88.8945, -433, 1308, -444.472, -63.4961, 444.472, 63.4961, 320, 1523, -355.578, 76.1953, 355.578, -76.1953, 1424, 1375, -482.57, -25.3984, 482.57, 25.3984, 2190, 1348, -380.976, 165.09, 380.976, -165.09, 3011, 1093, -406.375, 12.6992, 406.375, -12.6992, 3980, 904, -482.57, 114.293, 482.57, -114.293, 4760, 743, -406.375, -101.594, 406.375, 101.594, 5702, 716, 342.879, -215.887, -342.879, 215.887, 6079, 1671, 228.586, -533.367, -228.586, 533.367, 5971, 2236, -279.383, -279.383, 279.383, 279.383, 5298, 2048, 546.066, 177.789, -546.066, -177.789, 4881, 1698, -69.4117, -218.914, 69.4117, 218.914, 4087, 1900, 170.86, -53.3936, -170.86, 53.3936, 3078, 2183, 352.398, -304.344, -352.398, 304.344, 2177, 2196, 96.1085, -154.841, -96.1085, 154.841, 1437, 2855, 192.217, -160.181, -192.217, 160.181, 576, 3218, 272.307, -64.0723, -272.307, 64.0723, -164, 3393, 53.3936, -122.805, -53.3936, 122.805, -904, 3784, -85.4298, -10.6787, 85.4298, 10.6787, -1483, 4228, 0, 0, 0, 0, -1510, 4281)
 }
 point_count = 27
-
-[sub_resource type="Curve2D" id="Curve2D_t8owa"]
-_data = {
-"points": PackedVector2Array(-228.586, -469.871, 228.586, 469.871, -255, 1730, -177.789, 101.594, 177.789, -101.594, 443, 1908, -203.187, 82.5449, 203.187, -82.5449, 945, 1800, 50.7968, 253.984, -50.7968, -253.984, 1129, 1470, 152.391, 114.293, -152.391, -114.293, 1033, 1203, 158.74, 50.7968, -158.74, -50.7968, 691, 898, 222.236, -82.5449, -222.236, 82.5449, 138, 911, 120.642, -146.041, -120.642, 146.041, -141, 1114, -50.7968, -171.439, 50.7968, 171.439, -160, 1559, -25.3984, -114.293, 25.3984, 114.293, -249, 1698, 0, 0, 0, 0, -255, 1730)
-}
-point_count = 11
 
 [node name="Map" instance=ExtResource("1_38wlu")]
 script = ExtResource("2_wwgex")
@@ -705,13 +699,8 @@ blend_mode = 1
 [node name="CarPath" type="Path2D" parent="Entities/Enemies/Cars" index="0"]
 curve = SubResource("Curve2D_36ap5")
 
-[node name="SimplePath" type="Path2D" parent="Entities/Enemies/Cars" index="1"]
-curve = SubResource("Curve2D_t8owa")
-
-[node name="Car" parent="Entities/Enemies/Cars/SimplePath" index="0" instance=ExtResource("30_tyekr")]
-position = Vector2(-163.65, 1546.75)
-rotation = 1.27994
-progress = 3980.91
+[node name="Hunter" parent="Entities/Enemies" index="1" instance=ExtResource("30_2fhf4")]
+position = Vector2(-185, 798)
 
 [node name="Transition" parent="." index="7" instance=ExtResource("12_tna3t")]
 
