@@ -36,9 +36,34 @@ var health : int = 100:
 		return health
 	# Set the health
 	set(value):
-		health = value
+		# If player healed, increase his health
+		if health < value:
+			# Make sure player's health doesn't exceed 100
+			health += min(100, value)
+		
+		# Otherwise, if player is vulnerable
+		elif player_vulnerable:
+			# Set the new health
+			health = value
+			
+			# Make him not vulnerable for a while
+			player_vulnerable = false
+			# Run the hit cooldown
+			player_hit_cooldown()	
 		# Emit the health changed signal
 		health_changed.emit()
 		
 # Player's position
 var player_pos: Vector2
+
+# Player is vulnerable flag
+var player_vulnerable: bool = true
+
+
+# Control player's hit cooldown
+func player_hit_cooldown():
+	# Await for the cooldown to pass
+	await get_tree().create_timer(0.5).timeout
+	
+	# Set him back to vulnerable
+	player_vulnerable = true

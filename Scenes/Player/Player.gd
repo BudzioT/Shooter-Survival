@@ -98,7 +98,15 @@ func _secondary_action(player_direction) -> void:
 			
 # Check and control player's damage
 func hit() -> void:
-	print("PLAYER HIT!")
+	# Reduce player's health
+	Global.health -= 10
+	
+	# Make him different color for a while
+	$PlayerImage.material.set_shader_parameter("filter", 1)
+	# Wait for some time
+	await get_tree().create_timer(0.2).timeout
+	# Set his color back to normal
+	$PlayerImage.material.set_shader_parameter("filter", 0)
 
 # When main action cooldown ends, allow the player to use it again
 func _on_main_timer_timeout() -> void:

@@ -67,6 +67,9 @@ func hit() -> void:
 		# Start the hit cooldown timer
 		$Timers/HitCooldown.start()
 		
+		# Make him different color, to show the user that he damaged the scout
+		$Image.material.set_shader_parameter("progress", 1)
+		
 		# If he doesn't have health anymore, kill him
 		if health <= 0:
 			queue_free()
@@ -90,3 +93,4 @@ func _shoot_cooldown_timeout():
 func _hit_cooldown_timeout():
 	# Allow enemy to take damage
 	vulnerable = true
+	$Image.material.set_shader_parameter("progress", 0)
