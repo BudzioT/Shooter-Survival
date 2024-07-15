@@ -32,6 +32,8 @@ func _update(_delta) -> void:
 	
 	# Move the player, delta is applied automatically
 	move_and_slide()
+	# Store his new position in the global variables
+	Global.player_pos = global_position
 	
 	# Rotate him based off the mouse position
 	look_at(get_global_mouse_position())

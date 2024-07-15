@@ -1,11 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhla60233jwmr"]
+[gd_scene load_steps=6 format=3 uid="uid://dhla60233jwmr"]
 
 [ext_resource type="Texture2D" uid="uid://cu70nljp6vb5x" path="res://Graphics/player/player.png" id="1_hagwf"]
 [ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_yhqy1"]
 [ext_resource type="Texture2D" uid="uid://wk5b77a4sh7w" path="res://Graphics/decals/white.png" id="3_rgx0x"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_u73n4"]
-radius = 65.0308
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8r7sc"]
 lifetime_randomness = 0.11
@@ -29,16 +26,14 @@ script = ExtResource("1_yhqy1")
 rotation = 1.5708
 texture = ExtResource("1_hagwf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-38, -1)
-rotation = 1.5708
-shape = SubResource("CircleShape2D_u73n4")
-
 [node name="MainTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="SecondaryTimer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-48, 60, -40, 59, -32, 56, -23, 52, -14, 47, -6, 45, 2, 42, 6, 39, 0, 35, -5, 36, -11, 40, -11, 43, -20, 43, -26, 42, -26, 38, -31, 37, -28, 33, -27, 25, -29, 22, -25, 17, -21, 12, -20, 7, -16, 3, -16, -2, -17, -8, -17, -11, -13, -8, -6, -7, -2, -2, 1, 0, 11, 0, 23, 0, 33, 0, 41, -1, 49, -6, 58, -5, 50, -12, 44, -11, 40, -11, 31, -18, 23, -27, 15, -30, 10, -31, 7, -39, 7, -41, -1, -48, -9, -59, -16, -62, -23, -61, -26, -59, -33, -61, -40, -59, -48, -56, -52, -58, -58, -56, -63, -53, -65, -50, -64, -48, -66, -47, -69, -48, -77, -46, -83, -44, -88, -39, -90, -35, -91, -31, -97, -22, -97, -15, -97, -7, -97, 0, -95, 8, -90, 14, -88, 15, -88, 17, -90, 19, -88, 24, -85, 30, -80, 33, -78, 39, -74, 45, -72, 50, -68, 55, -59, 61, -50, 61)
 
 [node name="Weapon" type="Node2D" parent="."]
 rotation = 1.5708

@@ -39,3 +39,6 @@ var health : int = 100:
 		health = value
 		# Emit the health changed signal
 		health_changed.emit()
+		
+# Player's position
+var player_pos: Vector2

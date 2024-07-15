@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b642ewwvdwnup"]
+[gd_scene load_steps=36 format=3 uid="uid://b642ewwvdwnup"]
 
 [ext_resource type="PackedScene" uid="uid://cdas2umbrvee1" path="res://Scenes/Maps/Map.tscn" id="1_tffej"]
 [ext_resource type="Texture2D" uid="uid://c8nlo1ehnwdq0" path="res://Graphics/ground/dirt.png" id="2_4xihd"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://dao6hkggn4u4" path="res://Scenes/Objects/Celling/CellingInfrastructure.tscn" id="7_tbdss"]
 [ext_resource type="PackedScene" uid="uid://b1wlnbxhvv8ef" path="res://Scenes/Objects/Celling/CellingLattice.tscn" id="8_6vika"]
 [ext_resource type="PackedScene" uid="uid://ice0tbg838cc" path="res://Scenes/Containers/Crate.tscn" id="10_pc8kk"]
-[ext_resource type="PackedScene" uid="uid://dvtopn8a6ysy1" path="res://Scenes/Items/Item.tscn" id="10_rvdon"]
 [ext_resource type="PackedScene" uid="uid://b4xe2fp5q41tn" path="res://Scenes/Containers/ElectricBox.tscn" id="11_0gw1c"]
 [ext_resource type="PackedScene" uid="uid://cdi4g5yxluo06" path="res://Scenes/Containers/Toilet.tscn" id="12_a0s7o"]
 [ext_resource type="PackedScene" uid="uid://y0hqiqmqiwh3" path="res://Scenes/Objects/Infestations/LargeInfestation.tscn" id="12_hr05r"]
@@ -339,25 +338,74 @@ position = Vector2(4973, -3049)
 scale = Vector2(2.64, 2.64)
 texture = ExtResource("15_miene")
 
+[node name="CeilingHole1" type="Sprite2D" parent="Ground/Patch" index="19"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(371, -1728)
+texture = ExtResource("16_x3tqu")
+
+[node name="CeilingHole2" type="Sprite2D" parent="Ground/Patch" index="20"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(3607, -1368)
+texture = ExtResource("16_x3tqu")
+
+[node name="CeilingHole3" type="Sprite2D" parent="Ground/Patch" index="21"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(1601, 2112)
+texture = ExtResource("16_x3tqu")
+
+[node name="CeilingHole4" type="Sprite2D" parent="Ground/Patch" index="22"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2615, 4118)
+texture = ExtResource("16_x3tqu")
+
+[node name="CeilingHole5" type="Sprite2D" parent="Ground/Patch" index="23"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-2729, -251)
+texture = ExtResource("16_x3tqu")
+
+[node name="CeilingHole6" type="Sprite2D" parent="Ground/Patch" index="24"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(-5659, -5141)
+texture = ExtResource("16_x3tqu")
+
+[node name="CeilingHole7" type="Sprite2D" parent="Ground/Patch" index="25"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(5464, -3583)
+texture = ExtResource("16_x3tqu")
+
+[node name="CeilingHole8" type="Sprite2D" parent="Ground/Patch" index="26"]
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(3786, 1859)
+texture = ExtResource("16_x3tqu")
+
 [node name="LargeInfestation" parent="Ground/Infestation" index="0" instance=ExtResource("12_hr05r")]
 position = Vector2(-2373, 3452)
 
 [node name="MediumInfestation" parent="Ground/Infestation" index="1" instance=ExtResource("13_m81ju")]
 position = Vector2(-1952, 272)
 
-[node name="Spikes" parent="Ground/Infestation" index="2" instance=ExtResource("14_cm80m")]
+[node name="MediumInfestation2" parent="Ground/Infestation" index="2" instance=ExtResource("13_m81ju")]
+position = Vector2(-734, 2688)
+
+[node name="Spikes" parent="Ground/Infestation" index="3" instance=ExtResource("14_cm80m")]
 position = Vector2(-2208, -3120)
 
-[node name="SmallInfestation4" parent="Ground/Infestation" index="3" instance=ExtResource("15_pi5cr")]
+[node name="Spikes2" parent="Ground/Infestation" index="4" instance=ExtResource("14_cm80m")]
+position = Vector2(6349, 1966)
+
+[node name="Spikes3" parent="Ground/Infestation" index="5" instance=ExtResource("14_cm80m")]
+position = Vector2(6475, -1471)
+
+[node name="SmallInfestation4" parent="Ground/Infestation" index="6" instance=ExtResource("15_pi5cr")]
 position = Vector2(7430, -665)
 
-[node name="SmallInfestation3" parent="Ground/Infestation" index="4" instance=ExtResource("16_b1bdt")]
+[node name="SmallInfestation3" parent="Ground/Infestation" index="7" instance=ExtResource("16_b1bdt")]
 position = Vector2(464, -893)
 
-[node name="SmallInfestation2" parent="Ground/Infestation" index="5" instance=ExtResource("17_ca2js")]
+[node name="SmallInfestation2" parent="Ground/Infestation" index="8" instance=ExtResource("17_ca2js")]
 position = Vector2(1967, 513)
 
-[node name="SmallInfestation" parent="Ground/Infestation" index="6" instance=ExtResource("18_styql")]
+[node name="SmallInfestation" parent="Ground/Infestation" index="9" instance=ExtResource("18_styql")]
 position = Vector2(1972, -4172)
 
 [node name="Moss1" type="Sprite2D" parent="Ground/Moss" index="0"]
@@ -705,9 +753,6 @@ rotation = 1.5708
 [node name="Toilet10" parent="Crates" index="21" instance=ExtResource("12_a0s7o")]
 position = Vector2(6771, 4727)
 rotation = 3.14159
-
-[node name="Item" parent="Items" index="0" instance=ExtResource("10_rvdon")]
-position = Vector2(271, 4263)
 
 [node name="Darkness" type="DirectionalLight2D" parent="." index="4"]
 color = Color(0.37918, 0.37918, 0.37918, 1)

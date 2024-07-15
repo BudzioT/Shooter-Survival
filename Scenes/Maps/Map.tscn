@@ -31,6 +31,8 @@ script = ExtResource("1_gpayx")
 
 [node name="Grenades" type="Node2D" parent="Projectiles"]
 
+[node name="Enemies" type="Node2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("3_unffv")]
 position = Vector2(366, 391)
 
@@ -38,8 +40,6 @@ position = Vector2(366, 391)
 offset = Vector2(0, -100)
 zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
-
-[node name="Enemies" type="Node2D" parent="."]
 
 [node name="UI" parent="." instance=ExtResource("3_31610")]
 
