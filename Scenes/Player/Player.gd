@@ -95,6 +95,10 @@ func _secondary_action(player_direction) -> void:
 			
 			# Emit secondary action signal
 			used_secondary_action.emit(pos, player_direction)
+			
+# Check and control player's damage
+func hit() -> void:
+	print("PLAYER HIT!")
 
 # When main action cooldown ends, allow the player to use it again
 func _on_main_timer_timeout() -> void:

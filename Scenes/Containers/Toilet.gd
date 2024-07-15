@@ -14,4 +14,4 @@ func hit() -> void:
 		# Emit signal that the toilet has been opened
 		lid_opened.emit(pos, item_direction)
 		# Turn off the open flag
-		open = false
+		open = true

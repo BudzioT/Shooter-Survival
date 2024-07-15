@@ -6,7 +6,7 @@ func _gate_entered(_body) -> void:
 	# Create a tween
 	var tween = create_tween()
 	# Set player's speed to 0
-	tween.tween_property($Player, "speed", 0, 0.5)
+	tween.tween_property($Entities/Player, "speed", 0, 0.5)
 	
 	# Change the scene to the inside map
 	$Transition.change_map("res://Scenes/Maps/Inside.tscn")
@@ -19,9 +19,9 @@ func _building_player_entered() -> void:
 	tween.set_parallel(true)
 	
 	# Set the player's zoom to a bigger one
-	tween.tween_property($Player/Camera2D, "zoom", Vector2(0.7, 0.7), 2)
+	tween.tween_property($Entities/Player/Camera2D, "zoom", Vector2(0.7, 0.7), 2)
 	# Decrease his alpha a little
-	tween.tween_property($Player, "modulate:a", 0.4, 2)
+	tween.tween_property($Entities/Player, "modulate:a", 0.4, 2)
 
 # Handle player exiting the building
 func _building_player_left() -> void:
@@ -30,9 +30,9 @@ func _building_player_left() -> void:
 	# Set tween to make changes in parallel
 	tween.set_parallel(true)
 	# Set player's zoom back to normal
-	tween.tween_property($Player/Camera2D, "zoom", Vector2(0.5, 0.5), 2)
+	tween.tween_property($Entities/Player/Camera2D, "zoom", Vector2(0.5, 0.5), 2)
 	# Set his alpha back to normal
-	tween.tween_property($Player, "modulate:a", 1, 2)
+	tween.tween_property($Entities/Player, "modulate:a", 1, 2)
 
 # Handle player entering small building
 func _small_building_player_entered() -> void:
@@ -40,8 +40,8 @@ func _small_building_player_entered() -> void:
 	var tween = get_tree().create_tween()
 	tween.set_parallel(true)
 	
-	tween.tween_property($Player/Camera2D, "zoom", Vector2(0.8, 0.8), 3)
-	tween.tween_property($Player, "modulate:a", 0.4, 3)
+	tween.tween_property($Entities/Player/Camera2D, "zoom", Vector2(0.8, 0.8), 3)
+	tween.tween_property($Entities/Player, "modulate:a", 0.4, 3)
 
 # Handle player leaving a small building
 func _small_building_player_left() -> void:
@@ -49,5 +49,5 @@ func _small_building_player_left() -> void:
 	var tween = get_tree().create_tween()
 	tween.set_parallel(true)
 	
-	tween.tween_property($Player/Camera2D, "zoom", Vector2(0.5, 0.5), 3)
-	tween.tween_property($Player, "modulate:a", 1, 3)
+	tween.tween_property($Entities/Player/Camera2D, "zoom", Vector2(0.5, 0.5), 3)
+	tween.tween_property($Entities/Player, "modulate:a", 1, 3)

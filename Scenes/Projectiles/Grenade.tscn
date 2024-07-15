@@ -168,7 +168,6 @@ occluder = SubResource("OccluderPolygon2D_4nc7r")
 
 [node name="Explosion" type="Sprite2D" parent="."]
 position = Vector2(-1, 0)
-scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_bs6g4")
 hframes = 8
 vframes = 8

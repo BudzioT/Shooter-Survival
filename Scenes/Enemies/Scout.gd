@@ -5,12 +5,18 @@ extends CharacterBody2D
 var player_near: bool = false
 # Scout can shoot flag
 var can_shoot: bool = false
+# Scout can be hit flag
+var vulnerable: bool = true
 
 # Flag indicating gun to shoot with (false - left, true - right)
 var gun: bool = false
 
+# Health of the scout
+var health: int = 40
+
 # Signal to shoot
 signal shoot(pos, direction)
+
 
 # Process Scout's changes
 func _process(_delta):
@@ -47,7 +53,23 @@ func _shoot():
 		# Turn off the shoot flag
 		can_shoot = false
 		# Start the cooldown
-		$ShootCooldown.start()
+		$Timers/ShootCooldown.start()
+		
+# Handle scout getting hit
+func hit() -> void:
+	# If enemy is vulnerable
+	if vulnerable:
+		# Decrease his health
+		health -= 10
+		
+		# Set him to not vulnerable
+		vulnerable = false
+		# Start the hit cooldown timer
+		$Timers/HitCooldown.start()
+		
+		# If he doesn't have health anymore, kill him
+		if health <= 0:
+			queue_free()
 	
 # Handle player entering the scout's attack range
 func _attack_area_body_entered(_body):
@@ -63,3 +85,8 @@ func _attack_area_body_exited(_body):
 func _shoot_cooldown_timeout():
 	# Allow enemy to shoot on cooldown end
 	can_shoot = true
+
+# Manipulate the hit cooldown
+func _hit_cooldown_timeout():
+	# Allow enemy to take damage
+	vulnerable = true
