@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://6xejh1sn6ndq"]
+
+[ext_resource type="PackedScene" uid="uid://w743vsdf1s0q" path="res://Scenes/Projectiles/Laser.tscn" id="1_vf6fh"]
+
+[node name="Laser" instance=ExtResource("1_vf6fh")]
+
+[node name="Image" parent="." index="0"]
+modulate = Color(0.929412, 0, 0, 1)
+
+[node name="PointLight2D" parent="." index="2"]
+color = Color(0.756863, 0, 0, 1)

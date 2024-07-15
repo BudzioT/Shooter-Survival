@@ -1,15 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://cj6rc6p01s16x"]
+[gd_scene load_steps=8 format=3 uid="uid://cj6rc6p01s16x"]
 
 [ext_resource type="Texture2D" uid="uid://du3cng8wdesp3" path="res://Graphics/enemies/scout.png" id="1_l5l3s"]
 [ext_resource type="Script" path="res://Scenes/Enemies/Scout.gd" id="1_r5kpt"]
 [ext_resource type="Texture2D" uid="uid://bue1hdmuchdix" path="res://Graphics/lights/textures/circle.png" id="2_hr6vy"]
+[ext_resource type="Texture2D" uid="uid://wk5b77a4sh7w" path="res://Graphics/decals/white.png" id="4_y6yio"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pi442"]
 polygon = PackedVector2Array(-25, -36, -23, -38, -22, -43, -23, -46, -16, -51, -15, -52, -22, -59, -15, -64, -11, -66, -8, -66, -4, -65, 0, -68, 1, -63, 4, -61, 9, -60, 19, -57, 18, -61, 23, -67, 32, -59, 37, -52, 31, -45, 45, -44, 49, -45, 50, -42, 64, -43, 76, -42, 77, -45, 82, -45, 85, -57, 80, -61, 78, -66, 64, -68, 54, -74, 49, -80, 43, -83, 34, -83, 25, -82, 14, -81, -5, -81, -16, -74, -34, -74, -41, -83, -42, -82, -53, -102, -55, -98, -58, -93, -59, -87, -58, -77, -57, -70, -59, -61, -57, -58, -59, -56, -61, -54, -58, -51, -61, -48, -62, -43, -61, -38, -59, -34, -60, -29, -53, -26, -51, -21, -55, -18, -60, -13, -57, -10, -59, -8, -53, -3, -51, 1, -52, 8, -52, 12, -45, 15, -42, 16, -35, 25, -32, 30, -25, 36, -22, 39, -14, 44, -6, 48, -4, 44, -9, 34, -9, 24, -9, 16, -2, 17, 5, 15, 6, 20, 12, 21, 23, 20, 33, 19, 48, 18, 61, 17, 68, 12, 73, 4, 76, 3, 79, -2, 83, -3, 87, -3, 89, -6, 94, -12, 94, -19, 91, -24, 88, -24, 86, -26, 61, -26, 42, -25, 47, -17, 37, -1, 33, -3, 25, -4, 17, -1, 14, 3, 13, 5, 7, 4, 2, 6, -9, 1, -9, -7, -11, -10, -19, -11, -20, -17, -23, -20, -9, -20, -2, -19, 1, -20, 8, -24, 11, -27, 9, -29, 7, -29, 8, -31, 12, -33, 0, -39, -9, -39, -20, -37)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6dnne"]
 
-[node name="Scout" type="CharacterBody2D"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vht8d"]
+lifetime_randomness = 0.11
+particle_flag_disable_z = true
+spread = 25.985
+initial_velocity_min = 218.46
+initial_velocity_max = 378.94
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.4
+color = Color(0.905882, 1, 1, 1)
+
+[node name="Scout" type="CharacterBody2D" groups=["Scouts"]]
 collision_layer = 2
 collision_mask = 15
 script = ExtResource("1_r5kpt")
@@ -42,7 +54,7 @@ texture_scale = 0.6
 occluder = SubResource("OccluderPolygon2D_pi442")
 
 [node name="AttackArea" type="Area2D" parent="."]
-collision_mask = 16
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 scale = Vector2(142.481, 142.481)
@@ -51,12 +63,36 @@ shape = SubResource("CircleShape2D_6dnne")
 [node name="LaserSpawners" type="Node2D" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="LaserSpawners"]
-position = Vector2(83, -53)
+position = Vector2(83, -56)
 
 [node name="Marker2D2" type="Marker2D" parent="LaserSpawners"]
 position = Vector2(94, -15)
 
 [node name="ShootCooldown" type="Timer" parent="."]
+autostart = true
+
+[node name="ShootParticles" type="Node2D" parent="."]
+
+[node name="ShootParticle" type="GPUParticles2D" parent="ShootParticles"]
+modulate = Color(0.928453, 0.172516, 0.0354779, 1)
+position = Vector2(83, -56)
+emitting = false
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_vht8d")
+texture = ExtResource("4_y6yio")
+lifetime = 0.3
+one_shot = true
+
+[node name="ShootParticle2" type="GPUParticles2D" parent="ShootParticles"]
+modulate = Color(0.928453, 0.172516, 0.0354779, 1)
+position = Vector2(94, -15)
+emitting = false
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_vht8d")
+texture = ExtResource("4_y6yio")
+lifetime = 0.4
+one_shot = true
 
 [connection signal="body_entered" from="AttackArea" to="." method="_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_attack_area_body_exited"]
+[connection signal="timeout" from="ShootCooldown" to="." method="_shoot_cooldown_timeout"]
