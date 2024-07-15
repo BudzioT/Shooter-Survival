@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dtp7tmy3l0cet" path="res://Graphics/objects/electric_hole.png" id="2_t4g3p"]
 
 [node name="ElectricHole" instance=ExtResource("1_lsb0i")]
+collision_layer = 4
+collision_mask = 11
 
 [node name="Image" parent="." index="0"]
 texture = ExtResource("2_t4g3p")

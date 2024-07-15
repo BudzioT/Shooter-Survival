@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bn34lywadf0ro" path="res://Graphics/objects/ventilation_surface.png" id="2_dotnm"]
 
 [node name="VentClosed" instance=ExtResource("1_e8dc8")]
+collision_layer = 4
+collision_mask = 11
 
 [node name="Image" parent="." index="0"]
 texture = ExtResource("2_dotnm")

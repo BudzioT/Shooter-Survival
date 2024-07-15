@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://x31ls3qnkwrl" path="res://Graphics/objects/corner.png" id="2_dxy6q"]
 
 [node name="Corner" instance=ExtResource("1_e8qwf")]
+collision_layer = 4
+collision_mask = 11
 
 [node name="Image" parent="." index="0"]
 texture = ExtResource("2_dxy6q")

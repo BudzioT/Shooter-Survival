@@ -1,7 +1,8 @@
-[gd_scene load_steps=35 format=3 uid="uid://dqeoqxeec5qlj"]
+[gd_scene load_steps=38 format=3 uid="uid://dqeoqxeec5qlj"]
 
 [ext_resource type="Texture2D" uid="uid://ctwlt6sj20hvb" path="res://Graphics/enemies/bug/attack/00010.png" id="1_f776o"]
 [ext_resource type="Script" path="res://Scenes/Enemies/Bug.gd" id="1_gky3o"]
+[ext_resource type="Shader" path="res://Scenes/Enemies/Bug.gdshader" id="2_7ik63"]
 [ext_resource type="Texture2D" uid="uid://coi18kxh61gs8" path="res://Graphics/enemies/bug/attack/00011.png" id="2_oq3nd"]
 [ext_resource type="Texture2D" uid="uid://kep6pb6ani5j" path="res://Graphics/enemies/bug/attack/00012.png" id="3_ye2la"]
 [ext_resource type="Texture2D" uid="uid://d20w8ej3ktwxi" path="res://Graphics/enemies/bug/attack/00013.png" id="4_c2yg4"]
@@ -31,6 +32,18 @@
 [ext_resource type="Texture2D" uid="uid://uudxpw8kbkh0" path="res://Graphics/enemies/bug/walk/00006.png" id="28_08dhu"]
 [ext_resource type="Texture2D" uid="uid://dwqctfqpvrxqo" path="res://Graphics/enemies/bug/walk/00007.png" id="29_b0qfm"]
 [ext_resource type="Texture2D" uid="uid://ccgiqver602x2" path="res://Graphics/enemies/bug/walk/00008.png" id="30_ydygh"]
+[ext_resource type="Texture2D" uid="uid://bue1hdmuchdix" path="res://Graphics/lights/textures/circle.png" id="32_i1fcd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wwk8l"]
+radius = 966.033
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vtsjb"]
+radius = 99.0202
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qqx6x"]
+shader = ExtResource("2_7ik63")
+shader_parameter/color = Color(0, 1, 0.388235, 1)
+shader_parameter/filter = 0.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ct0ii"]
 animations = [{
@@ -135,24 +148,10 @@ animations = [{
 "speed": 30.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wwk8l"]
-radius = 875.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_vtsjb"]
-radius = 99.0202
-
-[node name="Bug" type="CharacterBody2D"]
+[node name="Bug" type="CharacterBody2D" groups=["Entity"]]
 collision_layer = 2
-collision_mask = 11
+collision_mask = 15
 script = ExtResource("1_gky3o")
-
-[node name="Animation" type="AnimatedSprite2D" parent="."]
-rotation = 1.5708
-scale = Vector2(0.08, 0.08)
-sprite_frames = SubResource("SpriteFrames_ct0ii")
-animation = &"attack"
-frame = 20
-frame_progress = 1.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 build_mode = 1
@@ -170,7 +169,35 @@ collision_layer = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 shape = SubResource("CircleShape2D_vtsjb")
 
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_qqx6x")
+rotation = 1.5708
+scale = Vector2(0.08, 0.08)
+sprite_frames = SubResource("SpriteFrames_ct0ii")
+animation = &"attack"
+frame = 20
+frame_progress = 1.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(6.99999, 7.00001)
+scale = Vector2(0.73625, 0.73625)
+color = Color(0, 1, 0.105882, 1)
+energy = 0.8
+texture = ExtResource("32_i1fcd")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="AttackCooldown" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="HitCooldown" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="body_entered" from="NoticeArea" to="." method="_notice_area_body_entered"]
 [connection signal="body_exited" from="NoticeArea" to="." method="_notice_area_body_exited"]
 [connection signal="body_entered" from="AttackArea" to="." method="_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_attack_area_body_exited"]
+[connection signal="animation_finished" from="Animation" to="." method="_animation_finished"]
+[connection signal="timeout" from="Timers/AttackCooldown" to="." method="_attack_cooldown_timeout"]
+[connection signal="timeout" from="Timers/HitCooldown" to="." method="_hit_cooldown_timeout"]

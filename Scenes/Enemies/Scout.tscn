@@ -27,7 +27,7 @@ scale_min = 0.3
 scale_max = 0.4
 color = Color(0.905882, 1, 1, 1)
 
-[node name="Scout" type="CharacterBody2D" groups=["Scouts"]]
+[node name="Scout" type="CharacterBody2D" groups=["Entity", "Scouts"]]
 collision_layer = 2
 collision_mask = 15
 script = ExtResource("1_r5kpt")
@@ -108,7 +108,7 @@ one_shot = true
 autostart = true
 
 [node name="HitCooldown" type="Timer" parent="Timers"]
-wait_time = 0.1
+wait_time = 0.5
 one_shot = true
 
 [connection signal="body_entered" from="AttackArea" to="." method="_attack_area_body_entered"]

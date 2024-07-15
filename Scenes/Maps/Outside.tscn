@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cojolu4o5toc5"]
+[gd_scene load_steps=46 format=3 uid="uid://cojolu4o5toc5"]
 
 [ext_resource type="PackedScene" uid="uid://cdas2umbrvee1" path="res://Scenes/Maps/Map.tscn" id="1_38wlu"]
 [ext_resource type="Texture2D" uid="uid://cjkck1qapw5m2" path="res://Graphics/ground/stones.png" id="2_73trm"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://b4xe2fp5q41tn" path="res://Scenes/Containers/ElectricBox.tscn" id="20_w3t77"]
 [ext_resource type="Texture2D" uid="uid://6vbnlx5qrbck" path="res://Graphics/decals/brushes/brush052.png" id="25_3t1x0"]
 [ext_resource type="PackedScene" uid="uid://b41tijohpvxot" path="res://Scenes/Objects/Plain/Corner.tscn" id="25_iqkly"]
+[ext_resource type="PackedScene" uid="uid://cj6rc6p01s16x" path="res://Scenes/Enemies/Scout.tscn" id="30_s3mxt"]
 [ext_resource type="PackedScene" uid="uid://dqeoqxeec5qlj" path="res://Scenes/Enemies/Bug.tscn" id="31_yibp6"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bqrjl"]
@@ -688,8 +689,11 @@ position = Vector2(5554, -1581)
 color = Color(0.28485, 0.28485, 0.28485, 1)
 blend_mode = 1
 
-[node name="CharacterBody2D" parent="Entities/Enemies" index="0" instance=ExtResource("31_yibp6")]
-position = Vector2(1323, 942)
+[node name="Bug" parent="Entities/Enemies" index="0" instance=ExtResource("31_yibp6")]
+position = Vector2(1352, 1196)
+
+[node name="Scout" parent="Entities/Enemies" index="1" instance=ExtResource("30_s3mxt")]
+position = Vector2(-596, 1168)
 
 [node name="Transition" parent="." index="7" instance=ExtResource("12_tna3t")]
 

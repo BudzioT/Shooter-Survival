@@ -12,7 +12,7 @@ var vulnerable: bool = true
 var gun: bool = false
 
 # Health of the scout
-var health: int = 40
+var health: int = 50
 
 # Signal to shoot
 signal shoot(pos, direction)
