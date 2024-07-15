@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://Scenes/Enemies/Hunter.gd" id="1_8srrj"]
 [ext_resource type="Texture2D" uid="uid://cbkpvt6whrbxb" path="res://Graphics/enemies/hunter/hunter.png" id="1_mxq50"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tegum"]
-radius = 5294.04
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_pmfgr"]
 radius = 1573.69
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tegum"]
+radius = 8926.71
 
 [node name="Hunter" type="CharacterBody2D"]
 rotation = 1.5708
@@ -16,24 +16,32 @@ collision_layer = 2
 collision_mask = 15
 script = ExtResource("1_8srrj")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_mxq50")
+[node name="AttackArea" type="Area2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_pmfgr")
 
 [node name="NoticeArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea"]
 shape = SubResource("CircleShape2D_tegum")
 
-[node name="AttackArea" type="Area2D" parent="."]
+[node name="Image" type="Sprite2D" parent="."]
+texture = ExtResource("1_mxq50")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-shape = SubResource("CircleShape2D_pmfgr")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(120, 853.333, 113.333, 893.333, 86.6667, 906.667, 86.6667, 953.333, 73.3334, 946.667, 53.3334, 993.333, 6.66672, 1193.33, -13.3333, 1113.33, -40, 1040, -53.3333, 986.667, -80, 940, -86.6666, 940, -86.6666, 900, -113.333, 880, -133.333, 820, -160, 726.667, -153.333, 706.667, -186.667, 593.333, -186.667, 540, -200, 513.333, -186.667, 480, -193.333, 460, -206.667, 486.667, -226.667, 546.667, -240, 653.333, -253.333, 653.333, -260, 740, -280, 686.667, -280, 526.667, -273.333, 386.667, -253.333, 373.333, -226.667, 380, -206.667, 366.667, -206.667, 233.333, -293.333, 153.333, -293.333, -26.6667, -273.333, -193.333, -220, -193.333, -200, -226.667, -213.333, -286.667, -193.333, -373.333, -246.667, -473.333, -173.333, -500, -180, -540, -160, -513.333, -153.333, -566.667, -166.667, -613.333, -146.667, -600, -160, -646.667, -140, -640, -140, -673.333, -126.667, -693.333, -146.667, -766.667, -113.333, -753.333, -133.333, -846.667, -126.667, -853.333, -146.667, -880, -133.333, -880, -153.333, -920, -120, -900, -106.667, -973.333, -66.6667, -960, -26.6667, -946.667, -26.6667, -926.667, -13.3334, -940, -13.3334, -920, -6.66671, -913.333, -6.66671, -933.333, 6.66663, -926.667, 13.3333, -920, 13.3333, -946.667, 33.3333, -940, 53.3333, -953.333, 106.667, -980, 120, -940, 120, -893.333, 146.667, -926.667, 160, -920, 126.667, -880, 146.667, -886.667, 120, -853.333, 133.333, -846.667, 126.667, -820, 120, -760, 140, -766.667, 120, -706.667, 140, -673.333, 140, -640, 160, -653.333, 153.333, -613.333, 140, -600, 146.667, -593.333, 166.667, -613.333, 153.333, -573.333, 153.333, -513.333, 173.333, -540, 166.667, -513.333, 166.667, -493.333, 193.333, -500, 186.667, -460, 233.333, -486.667, 233.333, -426.667, 180, -400, 206.667, -320, 200, -246.667, 193.333, -213.333, 280, -160, 273.333, -20, 206.667, -46.6667, 193.333, -40, 213.333, -13.3333, 286.667, -1.25306e-05, 286.667, 66.6666, 233.333, 66.6667, 220, 100, 266.667, 113.333, 286.667, 160, 273.333, 280, 273.333, 366.667, 220, 260, 213.333, 353.333, 253.333, 406.667, 266.667, 540, 266.667, 660, 226.667, 526.667, 200, 486.667, 186.667, 566.667, 180, 626.667, 160, 706.667, 153.333, 760, 140, 806.667)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
-[connection signal="body_entered" from="NoticeArea" to="." method="_notice_area_body_entered"]
-[connection signal="body_exited" from="NoticeArea" to="." method="_notice_area_body_exited"]
+[node name="Timers" type="Node" parent="."]
+
+[node name="NavigationTimer" type="Timer" parent="Timers"]
+wait_time = 1.5
+autostart = true
+
 [connection signal="body_entered" from="AttackArea" to="." method="_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_attack_area_body_exited"]
+[connection signal="body_entered" from="NoticeArea" to="." method="_notice_area_body_entered"]
+[connection signal="body_exited" from="NoticeArea" to="." method="_notice_area_body_exited"]
+[connection signal="timeout" from="Timers/NavigationTimer" to="." method="_navigation_timer_timeout"]

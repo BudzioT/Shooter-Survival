@@ -15,9 +15,22 @@ func _ready():
 	# Get the path target position
 	$NavigationAgent2D.target_position = Global.player_pos
 	
-# Process hunter's changes over frames
-func _process(_delta):
-	pass
+# Process hunter's physics-related changes over frames
+func _physics_process(_delta):
+	# If player is nearby
+	if player_near:
+		# Get the next path position
+		var next_path_pos: Vector2 = $NavigationAgent2D.get_next_path_position()
+	
+		# Calculate direction of the Hunter, based off next path position
+		var direction : Vector2 = (next_path_pos - global_position).normalized()
+		# Set the velocity to the given direction
+		velocity = direction * speed
+		
+		# Move the Hunter
+		move_and_slide()
+		# Look at the player
+		look_at(Global.player_pos)
 
 # Make Hunter notice the player
 func _notice_area_body_entered(_body):
@@ -34,3 +47,10 @@ func _attack_area_body_entered(_body):
 # Stop attacking the player
 func _attack_area_body_exited(_body):
 	attack = false
+
+# Handle navigation timer timing out
+func _navigation_timer_timeout():
+	# If Hunter is seeing the player
+	if player_near:
+		# Update the target path position
+		$NavigationAgent2D.target_position = Global.player_pos
