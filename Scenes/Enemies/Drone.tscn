@@ -1,7 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://3ta8u7te661h"]
+[gd_scene load_steps=11 format=3 uid="uid://3ta8u7te661h"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/Drone.gd" id="1_61l67"]
 [ext_resource type="Texture2D" uid="uid://cplwboqvd2ths" path="res://Graphics/enemies/drone.png" id="1_g50wy"]
+[ext_resource type="Shader" path="res://Scenes/Enemies/Drone.gdshader" id="2_tibsf"]
+[ext_resource type="Texture2D" uid="uid://g5tq0bbh0ruo" path="res://Graphics/explosions/explosion_3.png" id="3_rd4xh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k0he1"]
+shader = ExtResource("2_tibsf")
+shader_parameter/color = Color(0.529067, 0.529067, 0.529067, 1)
+shader_parameter/filter = 0.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_800vw"]
 polygon = PackedVector2Array(-147, 20, -145, 20, -141, 20, -138, 20, -136, 18, -134, 18, -129, 18, -125, 18, -122, 17, -121, 15, -120, 13, -117, 14, -114, 15, -112, 16, -109, 17, -105, 17, -96, 17, -92, 16, -84, 16, -79, 15, -74, 14, -71, 14, -69, 14, -69, 17, -68, 20, -67, 24, -66, 28, -65, 32, -63, 37, -61, 41, -59, 45, -57, 49, -56, 52, -54, 56, -50, 60, -46, 62, -42, 63, -38, 63, -34, 64, -25, 67, -19, 70, -14, 71, -7, 72, -1, 72, 6, 72, 14, 71, 22, 68, 34, 65, 37, 64, 41, 65, 46, 63, 52, 58, 56, 54, 56, 50, 59, 46, 60, 44, 60, 42, 62, 40, 63, 38, 65, 32, 68, 25, 69, 19, 70, 12, 70, 7, 74, 7, 80, 6, 89, 6, 98, 5, 107, 4, 111, 3, 117, 0, 121, -2, 122, 0, 124, 2, 130, 2, 143, 2, 148, 2, 150, 0, 150, -6, 150, -10, 148, -12, 146, -13, 144, -13, 143, -16, 142, -18, 139, -19, 137, -19, 137, -20, 138, -21, 140, -23, 139, -25, 139, -26, 140, -26, 141, -27, 141, -29, 140, -31, 138, -32, 136, -32, 130, -32, 127, -33, 126, -33, 121, -33, 113, -33, 110, -34, 103, -34, 99, -35, 95, -36, 89, -37, 82, -38, 73, -38, 67, -39, 63, -39, 55, -39, 52, -42, 49, -47, 45, -51, 38, -56, 35, -58, 34, -62, 32, -65, 30, -66, 27, -66, 25, -66, 23, -65, 23, -64, 17, -64, 11, -68, 9, -69, 6, -70, 1, -70, -5, -70, -10, -67, -14, -65, -19, -65, -20, -67, -23, -68, -27, -67, -30, -65, -31, -63, -32, -61, -32, -59, -39, -56, -42, -54, -46, -49, -51, -42, -52, -41, -56, -41, -58, -37, -60, -33, -61, -32, -63, -33, -67, -32, -81, -29, -95, -26, -116, -19, -120, -19, -124, -18, -126, -18, -133, -16, -139, -15, -142, -14, -144, -12, -144, -10, -143, -9, -141, -8, -141, -6, -140, -4, -139, -4, -138, -3, -139, -2, -140, -1, -141, -1, -142, -1, -143, 2, -143, 5, -144, 6, -146, 6, -147, 6, -149, 8, -149, 13, -149, 17, -148, 19)
@@ -9,12 +16,103 @@ polygon = PackedVector2Array(-147, 20, -145, 20, -141, 20, -138, 20, -136, 18, -
 [sub_resource type="CircleShape2D" id="CircleShape2D_jrtje"]
 radius = 1306.14
 
+[sub_resource type="Animation" id="Animation_31m1w"]
+resource_name = "Explosion"
+length = 2.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Explosion:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.55, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Image:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Explosion:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_stop_movement"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_8fw8g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Explosion:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [24]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1rbsk"]
+_data = {
+"Explosion": SubResource("Animation_31m1w"),
+"RESET": SubResource("Animation_8fw8g")
+}
+
 [node name="Drone" type="CharacterBody2D" groups=["Entity"]]
 collision_layer = 2
 collision_mask = 15
 script = ExtResource("1_61l67")
 
 [node name="Image" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_k0he1")
 rotation = 1.5708
 texture = ExtResource("1_g50wy")
 
@@ -27,6 +125,7 @@ rotation = 1.5708
 occluder = SubResource("OccluderPolygon2D_800vw")
 
 [node name="NoticeArea" type="Area2D" parent="."]
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea"]
 shape = SubResource("CircleShape2D_jrtje")
@@ -34,6 +133,19 @@ shape = SubResource("CircleShape2D_jrtje")
 [node name="Timers" type="Node2D" parent="."]
 
 [node name="HitTimer" type="Timer" parent="Timers"]
+wait_time = 0.2
+
+[node name="Explosion" type="Sprite2D" parent="."]
+texture = ExtResource("3_rd4xh")
+hframes = 8
+vframes = 8
+frame = 24
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1rbsk")
+}
 
 [connection signal="body_entered" from="NoticeArea" to="." method="_notice_area_body_entered"]
 [connection signal="body_exited" from="NoticeArea" to="." method="_notice_area_body_exited"]
+[connection signal="timeout" from="Timers/HitTimer" to="." method="_hit_timer_timeout"]
