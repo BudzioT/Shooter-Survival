@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cj6rc6p01s16x"]
+[gd_scene load_steps=11 format=3 uid="uid://cj6rc6p01s16x"]
 
 [ext_resource type="Texture2D" uid="uid://du3cng8wdesp3" path="res://Graphics/enemies/scout.png" id="1_l5l3s"]
 [ext_resource type="Script" path="res://Scenes/Enemies/Scout.gd" id="1_r5kpt"]
 [ext_resource type="Shader" path="res://Scenes/Enemies/Scout.gdshader" id="2_7weq7"]
 [ext_resource type="Texture2D" uid="uid://bue1hdmuchdix" path="res://Graphics/lights/textures/circle.png" id="2_hr6vy"]
 [ext_resource type="Texture2D" uid="uid://wk5b77a4sh7w" path="res://Graphics/decals/white.png" id="4_y6yio"]
+[ext_resource type="AudioStream" uid="uid://bra042wfgf44a" path="res://Audio/solid_impact.ogg" id="6_1w23d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6dnne"]
 
@@ -110,6 +111,10 @@ autostart = true
 [node name="HitCooldown" type="Timer" parent="Timers"]
 wait_time = 0.5
 one_shot = true
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_1w23d")
+volume_db = -10.0
 
 [connection signal="body_entered" from="AttackArea" to="." method="_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_attack_area_body_exited"]

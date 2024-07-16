@@ -45,6 +45,8 @@ func hit():
 		$Animation.material.set_shader_parameter("filter", 1.0)
 		# Emit some particles
 		$Particles/HitParticles.emitting = true
+		# Play the proper sound
+		$Sound.play()
 		
 		# Make Bug dissapear after killing it
 		if health <= 0:
@@ -84,6 +86,9 @@ func _animation_finished():
 		Global.health -= 10
 		# Start the attack cooldown
 		$Timers/AttackCooldown.start()
+		
+		# Play the hit sound
+		Global.player_hit_sound.play()
 
 # Make the Bug able to attack after cooldown passes
 func _attack_cooldown_timeout():

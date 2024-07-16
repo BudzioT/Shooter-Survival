@@ -7,6 +7,8 @@ func hit() -> void:
 	if not open:
 		# Hide the lid
 		$LidImage.hide()
+		# Play the hit sound
+		$Sound.play()
 		
 		# Spawn 4 items
 		for item_num in range(5):

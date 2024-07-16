@@ -202,4 +202,4 @@ energy = 16.0
 texture = ExtResource("4_kny43")
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
-volume_db = -30.0
+volume_db = -15.0

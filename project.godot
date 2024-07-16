@@ -17,8 +17,13 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://Global/Global.gd"
 Music="*res://Global/Music.tscn"
+Global="*res://Global/Global.gd"
+
+[display]
+
+mouse_cursor/custom_image="res://Graphics/ui/crosshair159.png"
+mouse_cursor/custom_image_hotspot=Vector2(17, 17)
 
 [input]
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://djbcx0xtckblb"]
+[gd_scene load_steps=3 format=3 uid="uid://djbcx0xtckblb"]
 
 [ext_resource type="Script" path="res://Scenes/Containers/ItemContainer.gd" id="1_sxxxg"]
+[ext_resource type="AudioStream" uid="uid://jqcx4ot62r3w" path="res://Audio/container_hit.mp3" id="2_mwxlf"]
 
 [node name="ItemContainer" type="StaticBody2D" groups=["Container"]]
 collision_layer = 4
@@ -14,3 +15,7 @@ script = ExtResource("1_sxxxg")
 [node name="LidImage" type="Sprite2D" parent="."]
 
 [node name="ItemSpawner" type="Node2D" parent="."]
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_mwxlf")
+volume_db = -15.0

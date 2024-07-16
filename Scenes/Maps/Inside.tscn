@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b642ewwvdwnup"]
+[gd_scene load_steps=38 format=3 uid="uid://b642ewwvdwnup"]
 
 [ext_resource type="PackedScene" uid="uid://cdas2umbrvee1" path="res://Scenes/Maps/Map.tscn" id="1_tffej"]
 [ext_resource type="Texture2D" uid="uid://c8nlo1ehnwdq0" path="res://Graphics/ground/dirt.png" id="2_4xihd"]
@@ -33,6 +33,9 @@
 [ext_resource type="PackedScene" uid="uid://olj5t6lja21f" path="res://Scenes/Objects/Plain/SteamVent.tscn" id="20_ltsai"]
 [ext_resource type="PackedScene" uid="uid://cqyk0gg1dvk6b" path="res://Scenes/Objects/Plain/VentClosed.tscn" id="21_87fxq"]
 [ext_resource type="PackedScene" uid="uid://cwjsldd4ehe7s" path="res://Scenes/Objects/Plain/VentSmall.tscn" id="22_grahl"]
+[ext_resource type="PackedScene" uid="uid://cj6rc6p01s16x" path="res://Scenes/Enemies/Scout.tscn" id="33_8jmia"]
+[ext_resource type="PackedScene" uid="uid://3ta8u7te661h" path="res://Scenes/Enemies/Drone.tscn" id="34_x2ia5"]
+[ext_resource type="PackedScene" uid="uid://dqeoqxeec5qlj" path="res://Scenes/Enemies/Bug.tscn" id="35_ob4bg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_isk6i"]
 size = Vector2(1164, 412)
@@ -752,6 +755,45 @@ rotation = 1.5708
 [node name="Toilet10" parent="Crates" index="21" instance=ExtResource("12_a0s7o")]
 position = Vector2(6771, 4727)
 rotation = 3.14159
+
+[node name="Scout" parent="Entities/Enemies" index="0" instance=ExtResource("33_8jmia")]
+position = Vector2(-2783, 792)
+
+[node name="Scout2" parent="Entities/Enemies" index="1" instance=ExtResource("33_8jmia")]
+position = Vector2(4073, 1403)
+
+[node name="Scout3" parent="Entities/Enemies" index="2" instance=ExtResource("33_8jmia")]
+position = Vector2(4299, -3190)
+
+[node name="Scout4" parent="Entities/Enemies" index="3" instance=ExtResource("33_8jmia")]
+position = Vector2(-3553, -4027)
+
+[node name="Drone" parent="Entities/Enemies" index="4" instance=ExtResource("34_x2ia5")]
+position = Vector2(6245, 1154)
+
+[node name="Drone2" parent="Entities/Enemies" index="5" instance=ExtResource("34_x2ia5")]
+position = Vector2(5883, -3937)
+
+[node name="Drone3" parent="Entities/Enemies" index="6" instance=ExtResource("34_x2ia5")]
+position = Vector2(-4299, 3915)
+
+[node name="Drone4" parent="Entities/Enemies" index="7" instance=ExtResource("34_x2ia5")]
+position = Vector2(5272, 3960)
+
+[node name="Bug" parent="Entities/Enemies" index="8" instance=ExtResource("35_ob4bg")]
+position = Vector2(-5883, 1569)
+
+[node name="Bug2" parent="Entities/Enemies" index="9" instance=ExtResource("35_ob4bg")]
+position = Vector2(3273, -3443)
+
+[node name="Bug3" parent="Entities/Enemies" index="10" instance=ExtResource("35_ob4bg")]
+position = Vector2(3489, -5248)
+
+[node name="Bug4" parent="Entities/Enemies" index="11" instance=ExtResource("35_ob4bg")]
+position = Vector2(3681, 988)
+
+[node name="Bug5" parent="Entities/Enemies" index="12" instance=ExtResource("35_ob4bg")]
+position = Vector2(-4814, -1993)
 
 [node name="Player" parent="Entities" index="1"]
 position = Vector2(2190, 4383)

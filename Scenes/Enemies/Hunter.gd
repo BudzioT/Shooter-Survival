@@ -49,6 +49,9 @@ func _attack():
 		# Decrease his health
 		Global.health -= 20
 		
+		# Play player's hit sound effect
+		Global.player_hit_sound.play()
+		
 # Handle Hunter's hits
 func hit():
 	# If Hunter is vulnerable

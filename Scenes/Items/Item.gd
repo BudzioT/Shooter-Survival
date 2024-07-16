@@ -61,5 +61,12 @@ func _body_entered(_body):
 	elif type == "health":
 		Global.health += 10
 		
+	# Hide the item, so it doesn't stay when sound effect plays
+	$Sprite2D.hide()
+	# Play the collect sound
+	$Sound.play()
+	# Await for the sound to finish
+	await $Sound.finished
+		
 	# Destroy the item
 	queue_free()

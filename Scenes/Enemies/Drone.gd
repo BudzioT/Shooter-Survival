@@ -72,6 +72,9 @@ func hit() -> void:
 		# Start the hit cooldown
 		$Timers/HitTimer.start()
 		
+		# Play hit sound effect
+		$Sounds/HitSound.play()
+		
 		# Kill it, if it doesn't have any more health
 		if health <= 0:
 			# Play the explosion animation, while killing the drone
@@ -88,6 +91,9 @@ func _explode():
 	# Get all targeted nodes
 		var targets = get_tree().get_nodes_in_group("Container") \
 		+ get_tree().get_nodes_in_group("Entity")
+		
+		# Play explosion sound
+		$Sounds/ExplosionSound.play()
 		
 		# Go through each of them
 		for target in targets:

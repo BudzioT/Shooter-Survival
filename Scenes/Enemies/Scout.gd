@@ -69,6 +69,8 @@ func hit() -> void:
 		
 		# Make him different color, to show the user that he damaged the scout
 		$Image.material.set_shader_parameter("progress", 1)
+		# Play the hit sound effect
+		$Sound.play()
 		
 		# If he doesn't have health anymore, kill him
 		if health <= 0:

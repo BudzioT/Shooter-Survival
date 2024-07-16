@@ -7,6 +7,8 @@ func hit() -> void:
 	if not open:
 		# Hide the lid
 		$LidImage.hide()
+		# Play the container hit sound
+		$Sound.play()
 		
 		# Get the position of the item
 		var pos = $ItemSpawner/Marker2D.global_position

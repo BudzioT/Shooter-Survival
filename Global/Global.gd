@@ -7,6 +7,9 @@ signal health_changed
 signal projectile_changed
 signal grenade_changed
 
+# Player's hit sound effect
+var player_hit_sound: AudioStreamPlayer2D 
+
 # Player's amount of projectiles
 var projectile_count : int = 20:
 	# Get the projectile count
@@ -59,6 +62,16 @@ var player_pos: Vector2
 # Player is vulnerable flag
 var player_vulnerable: bool = true
 
+
+# Prepare global variables
+func _ready():
+	# Create a new audio stream
+	player_hit_sound = AudioStreamPlayer2D.new()
+	# Load the proper file
+	player_hit_sound.stream = load("res://Audio/solid_impact.ogg")
+	
+	# Create it as the global node
+	add_child(player_hit_sound)
 
 # Control player's hit cooldown
 func player_hit_cooldown():

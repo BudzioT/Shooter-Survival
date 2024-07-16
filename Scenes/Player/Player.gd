@@ -101,6 +101,9 @@ func hit() -> void:
 	# Reduce player's health
 	Global.health -= 10
 	
+	# Play the hit sound
+	Global.player_hit_sound.play()
+	
 	# Make him different color for a while
 	$PlayerImage.material.set_shader_parameter("filter", 1)
 	# Wait for some time
