@@ -706,7 +706,7 @@ blend_mode = 1
 curve = SubResource("Curve2D_36ap5")
 
 [node name="Hunter" parent="Entities/Enemies" index="1" instance=ExtResource("30_2fhf4")]
-position = Vector2(8902, 3073)
+position = Vector2(9020, 2915)
 
 [node name="Transition" parent="." index="7" instance=ExtResource("12_tna3t")]
 

@@ -29,12 +29,16 @@ func _physics_process(_delta):
 		
 		# Move the Hunter
 		move_and_slide()
+		
 		# Look at the player
-		look_at(Global.player_pos)
+		var look_angle = direction.angle()
+		rotation = look_angle + PI / 2
 
 # Make Hunter notice the player
 func _notice_area_body_entered(_body):
 	player_near = true
+	# Play the walk animation
+	$AnimationPlayer.play("Walk")
 
 # Stop noticing the player
 func _notice_area_body_exited(_body):
@@ -43,6 +47,8 @@ func _notice_area_body_exited(_body):
 # Attack the player
 func _attack_area_body_entered(_body):
 	attack = true
+	# Play the attack animation
+	$AnimationPlayer.play("Attack")
 
 # Stop attacking the player
 func _attack_area_body_exited(_body):
