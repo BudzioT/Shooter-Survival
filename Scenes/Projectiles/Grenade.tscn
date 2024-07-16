@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dsnum8t8l86d5"]
+[gd_scene load_steps=13 format=3 uid="uid://dsnum8t8l86d5"]
 
 [ext_resource type="Script" path="res://Scenes/Projectiles/Grenade.gd" id="1_78xd8"]
 [ext_resource type="Texture2D" uid="uid://c56muoh8r8lox" path="res://Graphics/projectiles/grenade.png" id="1_mla6p"]
 [ext_resource type="Texture2D" uid="uid://g5tq0bbh0ruo" path="res://Graphics/explosions/explosion_3.png" id="3_bs6g4"]
+[ext_resource type="AudioStream" uid="uid://dm7kyml837s1k" path="res://Audio/explosion.wav" id="4_db12e"]
 [ext_resource type="Texture2D" uid="uid://bue1hdmuchdix" path="res://Graphics/lights/textures/circle.png" id="4_kny43"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qq7sb"]
@@ -110,6 +111,21 @@ tracks/4/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Sound")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_db12e")
+}],
+"times": PackedFloat32Array(0.2)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="Animation" id="Animation_jfgbv"]
 length = 0.001
@@ -184,3 +200,6 @@ scale = Vector2(0.03, 0.03)
 color = Color(0.979589, 0.000733825, 0.0518974, 1)
 energy = 16.0
 texture = ExtResource("4_kny43")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+volume_db = -30.0

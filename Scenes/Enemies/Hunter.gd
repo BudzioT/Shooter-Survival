@@ -5,13 +5,21 @@ extends CharacterBody2D
 var player_near: bool = false
 # Attack flag
 var attack: bool = false
+# Vulnerability flag
+var vulnerable: bool = true
 
 # Hunter's speed
 var speed: int = 250
+# His health
+var health: int = 100
 
 
 # Prepare the hunter
 func _ready():
+	# Keep a path distance
+	$NavigationAgent2D.path_desired_distance = 4.0
+	# Keep distance from the target
+	$NavigationAgent2D.path_desired_distance = 4.0
 	# Get the path target position
 	$NavigationAgent2D.target_position = Global.player_pos
 	
@@ -33,6 +41,25 @@ func _physics_process(_delta):
 		# Look at the player
 		var look_angle = direction.angle()
 		rotation = look_angle + PI / 2
+		
+# Attack the player
+func _attack():
+	# If player is in the attack range
+	if attack:
+		# Decrease his health
+		Global.health -= 20
+		
+# Handle Hunter's hits
+func hit():
+	# If Hunter is vulnerable
+	if vulnerable:
+		# Reduce his health
+		health -= 10
+		$Timers/HitTimer.start()
+		
+		# If he is dead, kill him
+		if health <= 0:
+			queue_free()
 
 # Make Hunter notice the player
 func _notice_area_body_entered(_body):
@@ -60,3 +87,7 @@ func _navigation_timer_timeout():
 	if player_near:
 		# Update the target path position
 		$NavigationAgent2D.target_position = Global.player_pos
+
+# Handle hit's cooldown
+func __hit_timer_timeout():
+	vulnerable = true
