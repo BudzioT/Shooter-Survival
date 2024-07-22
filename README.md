@@ -1,4 +1,4 @@
-# Word Game
+# Shooter Survival
 ## :computer: Info
 A top-down shooter game made in Godot using GDScript.<br>
 It has two maps, outside and inside one.<br>
